@@ -70,7 +70,7 @@ export const AccountDetails = () => {
       {/* Tabs */}
       <Card id="tabs-main" className="shadow-lg">
         <Tabs defaultValue="details" className="w-full">
-          <TabsList className="w-full grid grid-cols-5 h-auto">
+          <TabsList className="w-full flex flex-wrap h-auto gap-2 justify-start p-1">
             <TabsTrigger value="details" className="data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none">
               Détails
             </TabsTrigger>
