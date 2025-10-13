@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-
 interface AccordionSectionProps {
   id: string;
   title: string;
@@ -15,12 +14,16 @@ interface AccordionSectionProps {
   defaultOpen?: boolean;
   dataSlot?: string;
 }
-
-const AccordionSection = ({ id, title, icon, children, defaultOpen = false, dataSlot }: AccordionSectionProps) => {
+const AccordionSection = ({
+  id,
+  title,
+  icon,
+  children,
+  defaultOpen = false,
+  dataSlot
+}: AccordionSectionProps) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
-
-  return (
-    <Collapsible open={isOpen} onOpenChange={setIsOpen} className="border-b last:border-0">
+  return <Collapsible open={isOpen} onOpenChange={setIsOpen} className="border-b last:border-0">
       <CollapsibleTrigger className="flex w-full items-center justify-between p-4 hover:bg-muted/50 transition-colors">
         <div className="flex items-center gap-2">
           {icon}
@@ -33,28 +36,20 @@ const AccordionSection = ({ id, title, icon, children, defaultOpen = false, data
           {children}
         </div>
       </CollapsibleContent>
-    </Collapsible>
-  );
+    </Collapsible>;
 };
-
 export const AIAssistantPanel = () => {
   const [prompt, setPrompt] = useState("");
-
-  return (
-    <div id="col-right" className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col">
+  return <div id="col-right" className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col">
       <Card id="ai-panel" className="shadow-lg flex flex-col h-full overflow-hidden">
-        <CardHeader className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground rounded-t-lg flex-shrink-0">
+        <CardHeader className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground rounded-t-lg flex-shrink-0 py-[5px]">
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Sparkles className="h-5 w-5" />
               Mon Assistant IA
             </div>
             <div className="flex flex-col items-center gap-1">
-              <Button
-                size="icon"
-                variant="secondary"
-                className="rounded-full bg-white/20 hover:bg-white/30 text-white border-white/40"
-              >
+              <Button size="icon" variant="secondary" className="rounded-full bg-white/20 hover:bg-white/30 text-white border-white/40">
                 <MessageSquare className="h-4 w-4" />
               </Button>
               <span className="text-xs text-white/90">Parler à l'IA</span>
@@ -64,21 +59,10 @@ export const AIAssistantPanel = () => {
 
         <div className="flex-1 overflow-y-auto">
           {/* Synthèse fiche client */}
-          <AccordionSection
-            id="ai-summary"
-            dataSlot="summary"
-            title="Synthèse fiche client"
-            icon={<User className="h-4 w-4 text-primary" />}
-            defaultOpen={true}
-          >
+          <AccordionSection id="ai-summary" dataSlot="summary" title="Synthèse fiche client" icon={<User className="h-4 w-4 text-primary" />} defaultOpen={true}>
             <div className="space-y-2">
               <p>Sylviane Dupond a <strong>41 ans</strong>, elle est <strong>cadre en entreprise</strong> et a sa résidence principale à Lasseube (64), ainsi qu'une résidence secondaire à Biarritz (64). Elle est mariée et a 2 enfants de 20 et 19 ans.</p>
-              <Button 
-                id="btn-summary-refresh" 
-                variant="outline" 
-                size="sm" 
-                className="w-full gap-2"
-              >
+              <Button id="btn-summary-refresh" variant="outline" size="sm" className="w-full gap-2">
                 <RefreshCw className="h-3 w-3" />
                 Rafraîchir
               </Button>
@@ -93,12 +77,7 @@ export const AIAssistantPanel = () => {
           </AccordionSection>
 
           {/* Situation du foyer */}
-          <AccordionSection
-            id="ai-household"
-            dataSlot="household"
-            title="Situation du foyer"
-            icon={<Home className="h-4 w-4 text-sf-teal" />}
-          >
+          <AccordionSection id="ai-household" dataSlot="household" title="Situation du foyer" icon={<Home className="h-4 w-4 text-sf-teal" />}>
             <ul className="space-y-2 list-disc list-inside marker:text-primary">
               <li><strong>1 contrat Auto</strong> : Renault Captur (2028), usage personnel, assuré tous risques</li>
               <li><strong>2 contrats Habitation</strong> : résidence principale à Lasseube, résidence secondaire à Biarritz (appartement en copropriété)</li>
@@ -112,12 +91,7 @@ export const AIAssistantPanel = () => {
           </AccordionSection>
 
           {/* Profil client */}
-          <AccordionSection
-            id="ai-profile"
-            dataSlot="profile"
-            title="Profil client"
-            icon={<User className="h-4 w-4 text-accent" />}
-          >
+          <AccordionSection id="ai-profile" dataSlot="profile" title="Profil client" icon={<User className="h-4 w-4 text-accent" />}>
             <ul className="space-y-1">
               <li className="flex justify-between">
                 <span className="text-muted-foreground">Fidélité</span>
@@ -135,12 +109,7 @@ export const AIAssistantPanel = () => {
           </AccordionSection>
 
           {/* Dernière interaction notable */}
-          <AccordionSection
-            id="ai-last-interaction"
-            dataSlot="last-interaction"
-            title="Dernière interaction notable"
-            icon={<MessageSquare className="h-4 w-4 text-warning" />}
-          >
+          <AccordionSection id="ai-last-interaction" dataSlot="last-interaction" title="Dernière interaction notable" icon={<MessageSquare className="h-4 w-4 text-warning" />}>
             <div className="space-y-2">
               <p><strong>Sinistre Auto</strong> survenu en mai 2025 (accrochage mineur en stationnement) dont la gestion est terminée, véhicule réparé via un SAD</p>
               <p className="text-muted-foreground">Client très satisfait (ICF 4,5/5)</p>
@@ -148,12 +117,7 @@ export const AIAssistantPanel = () => {
           </AccordionSection>
 
           {/* Complétude KYC */}
-          <AccordionSection
-            id="ai-kyc"
-            dataSlot="kyc"
-            title="Complétude KYC"
-            icon={<CreditCard className="h-4 w-4 text-success" />}
-          >
+          <AccordionSection id="ai-kyc" dataSlot="kyc" title="Complétude KYC" icon={<CreditCard className="h-4 w-4 text-success" />}>
             <div className="space-y-3">
               <div className="space-y-1">
                 <div className="flex justify-between text-xs">
@@ -166,12 +130,7 @@ export const AIAssistantPanel = () => {
                 <AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
                 <div className="space-y-1">
                   <p className="font-medium text-destructive">Pièce d'identité obligatoire à collecter</p>
-                  <Button
-                    id="btn-kyc-request"
-                    size="sm"
-                    variant="destructive"
-                    className="w-full mt-2"
-                  >
+                  <Button id="btn-kyc-request" size="sm" variant="destructive" className="w-full mt-2">
                     Demander la pièce
                   </Button>
                 </div>
@@ -180,12 +139,7 @@ export const AIAssistantPanel = () => {
           </AccordionSection>
 
           {/* Pistes commerciales */}
-          <AccordionSection
-            id="ai-next-best-actions"
-            dataSlot="next-best-actions"
-            title="Pistes commerciales"
-            icon={<TrendingUp className="h-4 w-4 text-success" />}
-          >
+          <AccordionSection id="ai-next-best-actions" dataSlot="next-best-actions" title="Pistes commerciales" icon={<TrendingUp className="h-4 w-4 text-success" />}>
             <div className="space-y-3">
               <div className="p-3 bg-muted/50 rounded-lg space-y-2">
                 <div className="flex items-center justify-between">
@@ -205,12 +159,7 @@ export const AIAssistantPanel = () => {
                 </div>
                 <p className="text-xs text-muted-foreground">2 enfants jeunes adultes à couvrir</p>
               </div>
-              <Button 
-                id="btn-nba-generate" 
-                variant="outline" 
-                size="sm" 
-                className="w-full"
-              >
+              <Button id="btn-nba-generate" variant="outline" size="sm" className="w-full">
                 Générer d'autres pistes
               </Button>
             </div>
@@ -218,6 +167,5 @@ export const AIAssistantPanel = () => {
         </div>
 
       </Card>
-    </div>
-  );
+    </div>;
 };
