@@ -1,73 +1,272 @@
-# Welcome to your Lovable project
+# Salesforce Client Shell - IA Panel
 
-## Project info
+Interface de type Salesforce pour la gestion de fiches clients avec panneau d'assistance IA intégré.
 
-**URL**: https://lovable.dev/projects/2a7b8d76-f6ca-4fee-9067-ad46d1f00689
+![Screenshot](docs/screenshot.png)
 
-## How can I edit this code?
+## 🎯 Objectif du projet
 
-There are several ways of editing your application.
+Ce projet fournit une base front statique reproduisant la structure visuelle d'une "fiche client" Salesforce, avec un panneau latéral droit dédié aux outils IA (résumés, suggestions, KYC, pistes commerciales). Conçu pour être facilement intégré avec des APIs backend lors d'un hackathon ou d'un POC.
 
-**Use Lovable**
+## 🚀 Démarrage rapide
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2a7b8d76-f6ca-4fee-9067-ad46d1f00689) and start prompting.
+### Prérequis
+- Node.js 18+ et npm
+- ou Python 3 pour un serveur local simple
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+```bash
+# Cloner le repository
+git clone https://github.com/YOUR_USERNAME/salesforce-client-shell-ia-panel.git
+cd salesforce-client-shell-ia-panel
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Installer les dépendances
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Lancer le serveur de développement
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+L'application sera accessible sur `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Structure du projet
 
-**Use GitHub Codespaces**
+```
+salesforce-client-shell-ia-panel/
+├── src/
+│   ├── components/
+│   │   ├── SalesforceHeader.tsx      # Header avec navigation
+│   │   ├── AccountCard.tsx           # Carte compte client (gauche)
+│   │   ├── InteractionsPanel.tsx     # Panneau interactions (gauche)
+│   │   ├── AccountDetails.tsx        # Détails compte avec onglets (centre)
+│   │   └── AIAssistantPanel.tsx      # Panneau IA sticky (droite)
+│   ├── pages/
+│   │   └── Index.tsx                 # Page principale
+│   ├── index.css                     # Design system (CSS variables)
+│   └── main.tsx                      # Point d'entrée
+├── public/                           # Assets statiques
+├── docs/
+│   └── architecture.md               # Documentation technique
+└── README.md
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Design System
 
-## What technologies are used for this project?
+Le projet utilise un système de design basé sur des CSS variables définies dans `src/index.css` :
 
-This project is built with:
+### Couleurs principales
+- **Primary** : `#0176d3` (Bleu Salesforce)
+- **Accent** : `#7f3ddb` (Violet IA)
+- **Success** : `#16a34a`
+- **Warning** : `#f59e0b`
+- **Danger** : `#ef4444`
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Composants
+- Cards avec ombre portée légère
+- Accordéons avec transitions fluides
+- Badges colorés selon le statut
+- Progress bars pour KYC et confiance
+- Sticky right panel (reste visible au scroll)
 
-## How can I deploy this project?
+## 🔌 Intégration API
 
-Simply open [Lovable](https://lovable.dev/projects/2a7b8d76-f6ca-4fee-9067-ad46d1f00689) and click on Share -> Publish.
+### IDs et sélecteurs pour scripts
 
-## Can I connect a custom domain to my Lovable project?
+Le HTML est structuré avec des IDs stables pour faciliter l'intégration :
 
-Yes, you can!
+#### Zones principales
+- `#app` - Racine de l'application
+- `#app-header` - Header
+- `#col-left` - Colonne gauche
+- `#col-center` - Colonne centrale
+- `#col-right` - Panneau IA (droite)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+#### Panneau IA
+- `#ai-panel` - Conteneur principal
+- `#ai-summary` - Synthèse fiche client
+- `#ai-household` - Situation du foyer
+- `#ai-profile` - Profil client
+- `#ai-kyc` - Complétude KYC
+- `#ai-next-best-actions` - Pistes commerciales
+- `#ai-console` - Console d'entrée IA
+- `#ai-history` - Historique
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+#### Boutons d'action
+- `#btn-summary-refresh` - Rafraîchir synthèse
+- `#btn-kyc-request` - Demander pièce KYC
+- `#btn-nba-generate` - Générer pistes commerciales
+
+### Attributs data-slot
+
+Chaque section IA possède un attribut `data-slot` pour injection JSON :
+
+```html
+<div id="ai-summary" data-slot="summary">...</div>
+<div id="ai-household" data-slot="household">...</div>
+<div id="ai-profile" data-slot="profile">...</div>
+<div id="ai-kyc" data-slot="kyc">...</div>
+<div id="ai-next-best-actions" data-slot="next-best-actions">...</div>
+```
+
+### Fonctions d'intégration (à implémenter)
+
+Les fonctions suivantes sont prêtes à être connectées à vos APIs :
+
+```typescript
+// Appels API (à implémenter)
+async function fetchAISummary(accountId: string) {
+  // TODO: remplacer par votre endpoint
+  // GET /api/ai/summary/{accountId}
+}
+
+async function fetchAIHousehold(accountId: string) {
+  // TODO: remplacer par votre endpoint
+  // GET /api/ai/household/{accountId}
+}
+
+async function fetchAIProfile(accountId: string) {
+  // TODO: remplacer par votre endpoint
+  // GET /api/ai/profile/{accountId}
+}
+
+async function fetchAIKYCStatus(accountId: string) {
+  // TODO: remplacer par votre endpoint
+  // GET /api/ai/kyc/{accountId}
+}
+
+async function fetchNextBestActions(accountId: string) {
+  // TODO: remplacer par votre endpoint
+  // GET /api/ai/next-best-actions/{accountId}
+}
+
+// Rendu des données (acceptent du JSON)
+function renderSummary(json: any) {
+  const element = document.querySelector('#ai-summary [data-slot="summary"]');
+  // Injecter le contenu
+}
+
+// ... autres fonctions de rendu
+```
+
+### Format JSON attendu
+
+#### Synthèse (`/api/ai/summary/{accountId}`)
+```json
+{
+  "summary": "Sylviane Dupond a 41 ans...",
+  "confidence": 87
+}
+```
+
+#### Situation foyer (`/api/ai/household/{accountId}`)
+```json
+{
+  "contracts": [
+    {
+      "type": "Auto",
+      "count": 1,
+      "details": "Renault Captur (2028), usage personnel"
+    },
+    {
+      "type": "Habitation",
+      "count": 2,
+      "details": "Résidence principale + secondaire"
+    }
+  ]
+}
+```
+
+#### Profil (`/api/ai/profile/{accountId}`)
+```json
+{
+  "loyalty": "Très fidèle, 22 ans d'ancienneté",
+  "incidents": "Aucun incident de paiement",
+  "scoring": 3
+}
+```
+
+#### KYC (`/api/ai/kyc/{accountId}`)
+```json
+{
+  "completeness": 50,
+  "missing": ["identity_document"],
+  "alerts": [
+    {
+      "type": "error",
+      "message": "Pièce d'identité obligatoire à collecter"
+    }
+  ]
+}
+```
+
+#### Next Best Actions (`/api/ai/next-best-actions/{accountId}`)
+```json
+{
+  "actions": [
+    {
+      "title": "Assurance vie épargne",
+      "score": 8,
+      "reason": "Profil stable avec capacité d'épargne"
+    },
+    {
+      "title": "Mutuelle santé famille",
+      "score": 6,
+      "reason": "2 enfants jeunes adultes à couvrir"
+    }
+  ]
+}
+```
+
+## 📱 Responsive Design
+
+L'interface s'adapte automatiquement :
+
+- **≥1280px** : 3 colonnes (gauche + centre + droite sticky)
+- **1024-1279px** : 3 colonnes (étroites)
+- **≤1023px** : 2 colonnes (gauche+centre fusionnées, droite en bas)
+- **≤640px** : 1 colonne (vertical stack)
+
+## ♿ Accessibilité
+
+- Navigation clavier complète
+- Rôles ARIA appropriés
+- États de focus visibles
+- Contrastes AA (WCAG 2.1)
+- Labels explicites pour les contrôles
+
+## 🧪 Checklist Hackathon
+
+- [x] Layout 3 colonnes reproduit
+- [x] Design system Salesforce-like
+- [x] Panneau IA avec 6 sections
+- [x] Accordéons fonctionnels
+- [x] IDs et data-slots pour API
+- [ ] Connecter endpoints API réels
+- [ ] Ajouter authentification
+- [ ] Tests d'intégration
+- [ ] Déploiement production
+
+## 🛠️ Technologies
+
+- **React 18** avec TypeScript
+- **Vite** pour le build rapide
+- **Tailwind CSS** pour le styling
+- **Shadcn/ui** pour les composants
+- **Lucide React** pour les icônes
+
+## 📝 Licence
+
+MIT License - Voir [LICENSE](LICENSE) pour plus de détails.
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
+
+## 📧 Contact
+
+Pour toute question : [votre-email@example.com]
+
+---
+
+**Note** : Ce projet est une interface statique conçue pour être rapidement intégrée avec des APIs backend. Les données affichées sont des exemples fictifs pour la démonstration.
