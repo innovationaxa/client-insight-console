@@ -210,38 +210,6 @@ export const AIAssistantPanel = () => {
           </AccordionSection>
         </div>
 
-        {/* AI Console */}
-        <CardContent id="ai-console" className="border-t p-4 space-y-3 flex-shrink-0">
-          <Textarea
-            placeholder="Demandez à l'IA d'analyser, générer ou expliquer..."
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-            className="min-h-[80px] resize-none"
-          />
-          <div className="flex gap-2">
-            <Button size="sm" className="flex-1 gap-2">
-              <Send className="h-3 w-3" />
-              Générer
-            </Button>
-            <Button size="sm" variant="outline" className="gap-2">
-              Expliquer
-            </Button>
-            <Button size="sm" variant="outline">
-              <Copy className="h-3 w-3" />
-            </Button>
-          </div>
-          
-          {/* History */}
-          <div id="ai-history" className="pt-2 border-t">
-            <p className="text-xs text-muted-foreground mb-2">Historique récent</p>
-            <div className="space-y-1 text-xs">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Synthèse générée</span>
-                <span className="text-muted-foreground">Il y a 5 min</span>
-              </div>
-            </div>
-          </div>
-        </CardContent>
       </Card>
     </div>
   );
