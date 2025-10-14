@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { ContractsTab } from "@/components/ContractsTab";
 
 export const AccountDetails = () => {
   return (
@@ -162,9 +163,7 @@ export const AccountDetails = () => {
           </TabsContent>
 
           <TabsContent value="contrats" id="tab-contrats" className="p-6">
-            <div className="text-sm text-muted-foreground">
-              Contrats en cours d'affichage...
-            </div>
+            <ContractsTab />
           </TabsContent>
 
           <TabsContent value="opportunites" id="tab-opportunites" className="p-6">
