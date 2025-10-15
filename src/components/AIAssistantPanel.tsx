@@ -42,7 +42,7 @@ export const AIAssistantPanel = () => {
   const [viewMode, setViewMode] = useState<"preparation" | "live">("preparation");
 
   return <div id="col-right" className="h-full flex flex-col">
-      <Card id="ai-panel" className="shadow-lg flex flex-col h-full overflow-hidden bg-card">
+      <Card id="ai-panel" className="shadow-lg flex flex-col min-h-full overflow-hidden bg-card">
         <CardHeader className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground flex-shrink-0 py-3 px-4">
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center gap-2">
