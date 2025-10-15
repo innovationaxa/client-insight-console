@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles, ChevronDown, ChevronUp, RefreshCw, User, Home, CreditCard, AlertCircle, TrendingUp, MessageSquare, Clock, Star, DollarSign, FileWarning, CheckCircle2, Shield, Lightbulb, FileText, Baby, Briefcase, Palmtree, Home as HomeMove, Target, ThumbsDown, Calendar, Lock, TrendingUp as Growth } from "lucide-react";
+import { Sparkles, ChevronDown, ChevronUp, RefreshCw, User, Home, CreditCard, AlertCircle, TrendingUp, MessageSquare, Clock, Star, DollarSign, FileWarning, CheckCircle2, Shield, Lightbulb, FileText, Baby, Briefcase, Palmtree, Home as HomeMove, Target, ThumbsDown, Calendar, Lock, TrendingUp as Growth, ShoppingCart } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -326,16 +326,22 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-2 pt-2">
-                  <Button size="sm" className="flex-1 h-8 text-xs">
-                    <Target className="h-3 w-3 mr-1" />
-                    Créer opportunité
+                <div className="flex gap-1.5 pt-2">
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-purple-600 hover:bg-purple-700 text-white border-0">
+                    <Calendar className="h-3 w-3 mr-1" />
+                    Créer un RDV
                   </Button>
-                  <Button size="sm" variant="outline" className="h-8 w-8 p-0">
-                    <Calendar className="h-3 w-3" />
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-orange-500 hover:bg-orange-600 text-white border-0">
+                    <ShoppingCart className="h-3 w-3 mr-1" />
+                    Créer une opportunité
                   </Button>
-                  <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                    <ThumbsDown className="h-3 w-3" />
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-yellow-500 hover:bg-yellow-600 text-white border-0">
+                    <ThumbsDown className="h-3 w-3 mr-1" />
+                    Pas intéressé
+                  </Button>
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-blue-500 hover:bg-blue-600 text-white border-0">
+                    <RefreshCw className="h-3 w-3 mr-1" />
+                    Relancer
                   </Button>
                 </div>
               </div>
@@ -402,16 +408,22 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-2 pt-2">
-                  <Button size="sm" className="flex-1 h-8 text-xs">
-                    <Target className="h-3 w-3 mr-1" />
-                    Créer opportunité
+                <div className="flex gap-1.5 pt-2">
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-purple-600 hover:bg-purple-700 text-white border-0">
+                    <Calendar className="h-3 w-3 mr-1" />
+                    Créer un RDV
                   </Button>
-                  <Button size="sm" variant="outline" className="h-8 w-8 p-0">
-                    <Calendar className="h-3 w-3" />
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-orange-500 hover:bg-orange-600 text-white border-0">
+                    <ShoppingCart className="h-3 w-3 mr-1" />
+                    Créer une opportunité
                   </Button>
-                  <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                    <ThumbsDown className="h-3 w-3" />
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-yellow-500 hover:bg-yellow-600 text-white border-0">
+                    <ThumbsDown className="h-3 w-3 mr-1" />
+                    Pas intéressé
+                  </Button>
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-blue-500 hover:bg-blue-600 text-white border-0">
+                    <RefreshCw className="h-3 w-3 mr-1" />
+                    Relancer
                   </Button>
                 </div>
               </div>
@@ -478,16 +490,22 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-2 pt-2">
-                  <Button size="sm" className="flex-1 h-8 text-xs">
-                    <Target className="h-3 w-3 mr-1" />
-                    Créer opportunité
+                <div className="flex gap-1.5 pt-2">
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-purple-600 hover:bg-purple-700 text-white border-0">
+                    <Calendar className="h-3 w-3 mr-1" />
+                    Créer un RDV
                   </Button>
-                  <Button size="sm" variant="outline" className="h-8 w-8 p-0">
-                    <Calendar className="h-3 w-3" />
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-orange-500 hover:bg-orange-600 text-white border-0">
+                    <ShoppingCart className="h-3 w-3 mr-1" />
+                    Créer une opportunité
                   </Button>
-                  <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                    <ThumbsDown className="h-3 w-3" />
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-yellow-500 hover:bg-yellow-600 text-white border-0">
+                    <ThumbsDown className="h-3 w-3 mr-1" />
+                    Pas intéressé
+                  </Button>
+                  <Button size="sm" className="flex-1 h-7 text-[10px] px-2 bg-blue-500 hover:bg-blue-600 text-white border-0">
+                    <RefreshCw className="h-3 w-3 mr-1" />
+                    Relancer
                   </Button>
                 </div>
               </div>
