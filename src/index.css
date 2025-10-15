@@ -46,7 +46,7 @@ All colors MUST be HSL.
     --input: 214 32% 91%;
     --ring: 211 100% 42%;
 
-    --radius: 12px;
+    --radius: 5px;
 
     /* Salesforce-specific tokens */
     --sf-blue: 211 100% 42%;
