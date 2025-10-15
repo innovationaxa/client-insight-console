@@ -179,42 +179,40 @@ export const AIAssistantPanel = () => {
 
             {/* Contracts Section */}
             <Card>
-              <CollapsibleContent>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm flex items-center gap-2">
-                    <FileText className="h-4 w-4 text-primary" />
-                    📄 Contrats (4)
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3 text-sm">
-                  <div className="p-3 bg-muted/50 rounded-lg">
-                    <div className="font-medium mb-1 flex items-center justify-between">
-                      <span className="flex items-center gap-2">
-                        <Home className="h-4 w-4" />
-                        🏠 Habitation
-                      </span>
-                      <Badge variant="secondary">Actif</Badge>
-                    </div>
-                    <div className="text-muted-foreground text-xs space-y-0.5 mt-2">
-                      <div>Résidence principale - Lasseube</div>
-                      <div>+ résidence secondaire - Biarritz</div>
-                    </div>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <FileText className="h-4 w-4 text-primary" />
+                  📄 Contrats (4)
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm">
+                <div className="p-3 bg-muted/50 rounded-lg">
+                  <div className="font-medium mb-1 flex items-center justify-between">
+                    <span className="flex items-center gap-2">
+                      <Home className="h-4 w-4" />
+                      🏠 Habitation
+                    </span>
+                    <Badge variant="secondary">Actif</Badge>
                   </div>
-                  <div className="p-3 bg-muted/50 rounded-lg">
-                    <div className="font-medium mb-1 flex items-center justify-between">
-                      <span className="flex items-center gap-2">
-                        <DollarSign className="h-4 w-4" />
-                        🏦 Banque - Crédit
-                      </span>
-                      <Badge variant="secondary">Actif</Badge>
-                    </div>
-                    <div className="text-muted-foreground text-xs space-y-0.5 mt-2">
-                      <div>Prêt personnel (18 mois restants)</div>
-                      <div>Compte bancaire avec 2 cartes</div>
-                    </div>
+                  <div className="text-muted-foreground text-xs space-y-0.5 mt-2">
+                    <div>Résidence principale - Lasseube</div>
+                    <div>+ résidence secondaire - Biarritz</div>
                   </div>
-                </CardContent>
-              </CollapsibleContent>
+                </div>
+                <div className="p-3 bg-muted/50 rounded-lg">
+                  <div className="font-medium mb-1 flex items-center justify-between">
+                    <span className="flex items-center gap-2">
+                      <DollarSign className="h-4 w-4" />
+                      🏦 Banque - Crédit
+                    </span>
+                    <Badge variant="secondary">Actif</Badge>
+                  </div>
+                  <div className="text-muted-foreground text-xs space-y-0.5 mt-2">
+                    <div>Prêt personnel (18 mois restants)</div>
+                    <div>Compte bancaire avec 2 cartes</div>
+                  </div>
+                </div>
+              </CardContent>
             </Card>
 
             {/* Last Interaction */}
