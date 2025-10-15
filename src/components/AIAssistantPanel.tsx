@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ChatbotDialog } from "@/components/ChatbotDialog";
 interface AccordionSectionProps {
   id: string;
   title: string;
@@ -41,35 +40,18 @@ const AccordionSection = ({
 };
 export const AIAssistantPanel = () => {
   const [viewMode, setViewMode] = useState<"preparation" | "live">("preparation");
-  const [chatOpen, setChatOpen] = useState(false);
-  const [hasUnreadMessages, setHasUnreadMessages] = useState(false);
 
-  return (
-    <>
-      <ChatbotDialog open={chatOpen} onOpenChange={setChatOpen} />
-      <div id="col-right" className="h-full flex flex-col">
-        <Card id="ai-panel" className="shadow-lg flex flex-col min-h-full overflow-hidden bg-card">
+  return <div id="col-right" className="h-full flex flex-col">
+      <Card id="ai-panel" className="shadow-lg flex flex-col min-h-full overflow-hidden bg-card">
         <CardHeader className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground flex-shrink-0 py-3 px-4">
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Sparkles className="h-5 w-5" />
               <span className="text-base">Mon Assistant IA</span>
             </div>
-            <Button 
-              variant="outline" 
-              className="h-8 bg-white/10 text-white border-white/30 hover:bg-white/20 hover:border-white/50 relative"
-              onClick={() => {
-                setChatOpen(true);
-                setHasUnreadMessages(false);
-              }}
-            >
+            <Button variant="outline" className="h-8 bg-white/10 text-white border-white/30 hover:bg-white/20 hover:border-white/50">
               <MessageSquare className="h-4 w-4" />
               Parler à IA
-              {hasUnreadMessages && (
-                <span className="absolute -top-1 -right-1 h-5 w-5 bg-destructive text-white text-xs rounded-full flex items-center justify-center">
-                  1
-                </span>
-              )}
             </Button>
           </CardTitle>
         </CardHeader>
@@ -580,7 +562,5 @@ export const AIAssistantPanel = () => {
           </TabsContent>
         </Tabs>
       </Card>
-    </div>
-    </>
-  );
+    </div>;
 };
