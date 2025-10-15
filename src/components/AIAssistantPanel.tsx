@@ -164,7 +164,7 @@ export const AIAssistantPanel = () => {
           </AccordionSection>
 
           {/* Profil */}
-          <AccordionSection id="ai-profile" dataSlot="profile" title="Profil" icon={<User className="h-4 w-4 text-accent" />}>
+          <AccordionSection id="ai-profile" dataSlot="profile" title="Profil" icon={<User className="h-4 w-4 text-accent" />} defaultOpen={true}>
             <div className="space-y-2">
               <div className="grid grid-cols-2 gap-2">
                 <div className="p-2 bg-success/5 border border-success/20 rounded">
@@ -189,7 +189,7 @@ export const AIAssistantPanel = () => {
           </AccordionSection>
 
           {/* Dernières interactions */}
-          <AccordionSection id="ai-last-interaction" dataSlot="last-interaction" title="Dernières interactions" icon={<MessageSquare className="h-4 w-4 text-sf-teal" />}>
+          <AccordionSection id="ai-last-interaction" dataSlot="last-interaction" title="Dernières interactions" icon={<MessageSquare className="h-4 w-4 text-sf-teal" />} defaultOpen={true}>
             <div className="space-y-2">
               <div className="p-2 bg-muted/30 rounded space-y-1">
                 <div className="flex items-center justify-between">
