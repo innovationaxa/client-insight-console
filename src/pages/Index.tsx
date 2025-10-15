@@ -1,4 +1,5 @@
 import { SalesforceHeader } from "@/components/SalesforceHeader";
+import { SalesforceFooter } from "@/components/SalesforceFooter";
 import { AccountCard } from "@/components/AccountCard";
 import { InteractionsPanel } from "@/components/InteractionsPanel";
 import { AccountDetails } from "@/components/AccountDetails";
@@ -43,6 +44,8 @@ const Index = () => {
           </div>
         </div>
       </main>
+      
+      <SalesforceFooter />
     </div>
   );
 };
