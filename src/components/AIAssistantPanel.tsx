@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Sparkles, ChevronDown, ChevronUp, RefreshCw, User, Home, CreditCard, AlertCircle, TrendingUp, MessageSquare, Clock, Star, DollarSign, FileWarning, CheckCircle2, Shield, Lightbulb, FileText, Baby, Briefcase, Palmtree, Home as HomeMove, Target, ThumbsDown, Calendar, Lock, TrendingUp as Growth } from "lucide-react";
+import { Sparkles, ChevronDown, ChevronUp, RefreshCw, User, Home, CreditCard, AlertCircle, TrendingUp, MessageSquare, Clock, Star, DollarSign, FileWarning, CheckCircle2, Shield, Lightbulb, FileText, Baby, Briefcase, Palmtree, Home as HomeMove, Target, ThumbsDown, Calendar, Lock, TrendingUp as Growth, Timer } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -326,16 +326,38 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-2 pt-2">
-                  <Button size="sm" className="flex-1 h-8 text-xs">
-                    <Target className="h-3 w-3 mr-1" />
-                    Créer opportunité
-                  </Button>
-                  <Button size="sm" variant="outline" className="h-8 w-8 p-0">
+                <div className="flex gap-1.5 pt-2">
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#A855F7', color: '#9333EA' }}
+                  >
                     <Calendar className="h-3 w-3" />
+                    RDV
                   </Button>
-                  <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#FF6B35', color: '#FF5722' }}
+                  >
+                    <Target className="h-3 w-3" />
+                    Opportunité
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#FFA726', color: '#F57C00' }}
+                  >
                     <ThumbsDown className="h-3 w-3" />
+                    Refus
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#2196F3', color: '#1976D2' }}
+                  >
+                    <Timer className="h-3 w-3" />
+                    Relancer
                   </Button>
                 </div>
               </div>
@@ -402,16 +424,38 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-2 pt-2">
-                  <Button size="sm" className="flex-1 h-8 text-xs">
-                    <Target className="h-3 w-3 mr-1" />
-                    Créer opportunité
-                  </Button>
-                  <Button size="sm" variant="outline" className="h-8 w-8 p-0">
+                <div className="flex gap-1.5 pt-2">
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#A855F7', color: '#9333EA' }}
+                  >
                     <Calendar className="h-3 w-3" />
+                    RDV
                   </Button>
-                  <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#FF6B35', color: '#FF5722' }}
+                  >
+                    <Target className="h-3 w-3" />
+                    Opportunité
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#FFA726', color: '#F57C00' }}
+                  >
                     <ThumbsDown className="h-3 w-3" />
+                    Refus
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#2196F3', color: '#1976D2' }}
+                  >
+                    <Timer className="h-3 w-3" />
+                    Relancer
                   </Button>
                 </div>
               </div>
@@ -478,16 +522,38 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-2 pt-2">
-                  <Button size="sm" className="flex-1 h-8 text-xs">
-                    <Target className="h-3 w-3 mr-1" />
-                    Créer opportunité
-                  </Button>
-                  <Button size="sm" variant="outline" className="h-8 w-8 p-0">
+                <div className="flex gap-1.5 pt-2">
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#A855F7', color: '#9333EA' }}
+                  >
                     <Calendar className="h-3 w-3" />
+                    RDV
                   </Button>
-                  <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#FF6B35', color: '#FF5722' }}
+                  >
+                    <Target className="h-3 w-3" />
+                    Opportunité
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#FFA726', color: '#F57C00' }}
+                  >
                     <ThumbsDown className="h-3 w-3" />
+                    Refus
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    style={{ borderColor: '#2196F3', color: '#1976D2' }}
+                  >
+                    <Timer className="h-3 w-3" />
+                    Relancer
                   </Button>
                 </div>
               </div>
