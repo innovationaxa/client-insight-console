@@ -55,40 +55,6 @@ export const AIAssistantPanel = () => {
           </CardTitle>
         </CardHeader>
 
-        {/* Quick Summary Header */}
-        <div className="bg-gradient-to-br from-sf-gray-50 to-background p-4 border-b flex-shrink-0">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-1">
-              <div className="text-xs text-muted-foreground">Âge / Profession</div>
-              <div className="font-semibold text-sm">41 ans • Cadre</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-xs text-muted-foreground">Score client</div>
-              <div className="flex items-center gap-1">
-                <Badge variant="secondary" className="h-5 px-2 text-xs font-bold">3</Badge>
-                <div className="flex gap-0.5">
-                  {[1, 2, 3].map((i) => (
-                    <Star key={i} className="h-3 w-3 fill-warning text-warning" />
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-xs text-muted-foreground">Ancienneté</div>
-              <div className="font-semibold text-sm flex items-center gap-1">
-                <Shield className="h-3 w-3 text-success" />
-                22 ans
-              </div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-xs text-muted-foreground">Dernier contact</div>
-              <div className="font-semibold text-sm flex items-center gap-1">
-                <Clock className="h-3 w-3 text-primary" />
-                Mai 2025
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Tabs */}
         <Tabs defaultValue="synthese" className="flex-1 flex flex-col overflow-hidden">
