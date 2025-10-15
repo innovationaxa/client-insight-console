@@ -326,18 +326,17 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-1.5 pt-2">
+                <div className="flex gap-1 pt-2">
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#A855F7', color: '#9333EA' }}
                   >
                     <Calendar className="h-3 w-3" />
-                    RDV
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#FF6B35', color: '#FF5722' }}
                   >
                     <Target className="h-3 w-3" />
@@ -345,15 +344,14 @@ export const AIAssistantPanel = () => {
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#FFA726', color: '#F57C00' }}
                   >
                     <ThumbsDown className="h-3 w-3" />
-                    Refus
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#2196F3', color: '#1976D2' }}
                   >
                     <Timer className="h-3 w-3" />
@@ -424,18 +422,17 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-1.5 pt-2">
+                <div className="flex gap-1 pt-2">
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#A855F7', color: '#9333EA' }}
                   >
                     <Calendar className="h-3 w-3" />
-                    RDV
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#FF6B35', color: '#FF5722' }}
                   >
                     <Target className="h-3 w-3" />
@@ -443,15 +440,14 @@ export const AIAssistantPanel = () => {
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#FFA726', color: '#F57C00' }}
                   >
                     <ThumbsDown className="h-3 w-3" />
-                    Refus
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#2196F3', color: '#1976D2' }}
                   >
                     <Timer className="h-3 w-3" />
@@ -522,18 +518,17 @@ export const AIAssistantPanel = () => {
                   </div>
                 )}
                 
-                <div className="flex gap-1.5 pt-2">
+                <div className="flex gap-1 pt-2">
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#A855F7', color: '#9333EA' }}
                   >
                     <Calendar className="h-3 w-3" />
-                    RDV
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#FF6B35', color: '#FF5722' }}
                   >
                     <Target className="h-3 w-3" />
@@ -541,15 +536,14 @@ export const AIAssistantPanel = () => {
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#FFA726', color: '#F57C00' }}
                   >
                     <ThumbsDown className="h-3 w-3" />
-                    Refus
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-8 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#2196F3', color: '#1976D2' }}
                   >
                     <Timer className="h-3 w-3" />
