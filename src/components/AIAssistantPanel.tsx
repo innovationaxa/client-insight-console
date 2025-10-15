@@ -49,8 +49,9 @@ export const AIAssistantPanel = () => {
               <Sparkles className="h-5 w-5" />
               <span className="text-base">Mon Assistant IA</span>
             </div>
-            <Button size="icon" variant="ghost" className="h-8 w-8 text-white hover:bg-white/20">
+            <Button variant="outline" className="h-8 bg-white/10 text-white border-white/30 hover:bg-white/20 hover:border-white/50">
               <MessageSquare className="h-4 w-4" />
+              Parler à IA
             </Button>
           </CardTitle>
         </CardHeader>
