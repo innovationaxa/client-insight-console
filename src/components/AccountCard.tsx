@@ -1,6 +1,5 @@
-import { Mail, Phone, MapPin, Calendar, Hash, FileText, MessageSquare, CalendarPlus } from "lucide-react";
+import { Mail, Phone, MapPin, Calendar, Hash, FileText } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 export const AccountCard = () => {
@@ -57,19 +56,6 @@ export const AccountCard = () => {
           </div>
         </div>
 
-        <Separator />
-
-        {/* Action Buttons */}
-        <div className="space-y-2">
-          <Button className="w-full justify-start gap-2" variant="outline">
-            <MessageSquare className="h-4 w-4" />
-            Consigner un échange
-          </Button>
-          <Button className="w-full justify-start gap-2" variant="outline">
-            <CalendarPlus className="h-4 w-4" />
-            Créer un RDV
-          </Button>
-        </div>
       </CardContent>
     </Card>
   );
