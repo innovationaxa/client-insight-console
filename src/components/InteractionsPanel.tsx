@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { MessageSquare, Calendar } from "lucide-react";
 
 export const InteractionsPanel = () => {
   const [filters, setFilters] = useState({
@@ -21,6 +23,17 @@ export const InteractionsPanel = () => {
             <TabsTrigger value="notes">Notes</TabsTrigger>
           </TabsList>
           <TabsContent value="interactions" className="mt-4">
+            <div className="space-y-3 mb-4">
+              <Button variant="outline" className="w-full justify-start gap-2">
+                <MessageSquare className="h-4 w-4" style={{ color: '#06b6d4' }} />
+                <span className="text-primary">Consigner un échange</span>
+              </Button>
+              <Button variant="outline" className="w-full justify-start gap-2">
+                <Calendar className="h-4 w-4" style={{ color: '#a855f7' }} />
+                <span className="text-primary">Créer un RDV</span>
+              </Button>
+            </div>
+            
             <CardTitle className="text-base mb-4">Filtres</CardTitle>
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
