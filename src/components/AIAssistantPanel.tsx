@@ -77,22 +77,79 @@ export const AIAssistantPanel = () => {
 
           {/* Synthèse 360 Tab */}
           <TabsContent value="synthese" className="flex-1 overflow-y-auto mt-0">
+            {/* Key Info Header */}
+            <div className="p-4 space-y-4 border-b">
+              {/* Client Identity Card */}
+              <Card className="bg-gradient-to-br from-muted/30 to-background">
+                <CardContent className="p-4 space-y-3">
+                  <div>
+                    <h3 className="text-lg font-bold">Viviane Dupond</h3>
+                    <p className="text-sm text-muted-foreground">Cadre Entreprise</p>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="flex items-center gap-2">
+                      <span>🎂</span>
+                      <span>41 ans</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span>👨‍👩‍👧‍👦</span>
+                      <span>Mariée, 2 enfants</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span>📍</span>
+                      <span>Lasseube (64)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span>🏡</span>
+                      <span>+ résidence Biarritz</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Stats Bar */}
+              <div className="grid grid-cols-3 gap-2">
+                <Card>
+                  <CardContent className="p-3 text-center">
+                    <div className="text-2xl font-bold text-primary">22</div>
+                    <div className="text-xs text-muted-foreground">Ancienneté</div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-3 text-center">
+                    <div className="text-2xl font-bold text-primary">3</div>
+                    <div className="text-xs text-muted-foreground">Score fidélité</div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-3 text-center">
+                    <div className="text-2xl font-bold text-success">0</div>
+                    <div className="text-xs text-muted-foreground">Incidents</div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* KYC Alert */}
+              <Card className="border-destructive/30 bg-destructive/5">
+                <CardContent className="p-3">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
+                    <div className="flex-1 space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-semibold text-destructive">⚠️ Complétude KYC : 50%</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">📋 Pièces d'identité obligatoires à collecter</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
             {/* Foyer */}
-          <AccordionSection id="ai-household" dataSlot="household" title="Foyer" icon={<Home className="h-4 w-4 text-primary" />} defaultOpen={true}>
+          <AccordionSection id="ai-household" dataSlot="household" title="Contrats" icon={<Home className="h-4 w-4 text-primary" />} defaultOpen={true}>
             <div className="space-y-2">
-              <div className="flex items-center justify-between p-2 bg-muted/30 rounded">
-                <span className="text-xs">Résidence principale</span>
-                <span className="text-xs font-medium">Lasseube (64)</span>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-muted/30 rounded">
-                <span className="text-xs">Résidence secondaire</span>
-                <span className="text-xs font-medium">Biarritz (64)</span>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-muted/30 rounded">
-                <span className="text-xs">Situation familiale</span>
-                <span className="text-xs font-medium">Mariée, 2 enfants</span>
-              </div>
-              <div className="mt-3 p-3 bg-primary/5 border border-primary/20 rounded">
+              <div className="p-3 bg-primary/5 border border-primary/20 rounded">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xs font-semibold">Contrats actifs</span>
                   <Badge variant="outline" className="text-xs">5</Badge>
@@ -149,32 +206,6 @@ export const AIAssistantPanel = () => {
             </div>
           </AccordionSection>
 
-          {/* KYC */}
-          <AccordionSection id="ai-kyc" dataSlot="kyc" title="KYC / Documents" icon={<FileWarning className="h-4 w-4 text-destructive" />} defaultOpen={true}>
-            <div className="space-y-3">
-              <div className="space-y-2">
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-muted-foreground">Complétude</span>
-                  <span className="font-semibold">50%</span>
-                </div>
-                <Progress value={50} className="h-1.5" />
-              </div>
-              <div className="p-3 bg-destructive/10 border border-destructive/30 rounded space-y-2">
-                <div className="flex items-start gap-2">
-                  <AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <Badge variant="destructive" className="mb-2 h-5 text-[10px]">
-                      Document manquant
-                    </Badge>
-                    <p className="text-xs font-medium">Pièce d'identité obligatoire</p>
-                  </div>
-                </div>
-                <Button id="btn-kyc-request" size="sm" variant="destructive" className="w-full h-7 text-xs">
-                  Demander le document
-                </Button>
-              </div>
-            </div>
-          </AccordionSection>
 
           </TabsContent>
 
