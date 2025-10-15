@@ -83,8 +83,7 @@ export const AIAssistantPanel = () => {
               <Card className="bg-gradient-to-br from-muted/30 to-background">
                 <CardContent className="p-4 space-y-3">
                   <div>
-                    <h3 className="text-lg font-bold">Viviane Dupond</h3>
-                    <p className="text-sm text-muted-foreground">Cadre Entreprise</p>
+                    <p className="text-sm font-medium text-muted-foreground">Cadre Entreprise</p>
                   </div>
                   
                   <div className="grid grid-cols-2 gap-2 text-xs">
