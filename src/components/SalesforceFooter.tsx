@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Phone, Star, MessageSquare, Cloud, Clock, PhoneCall, ChevronDown } from "lucide-react";
+import { Phone, Star, MessageSquare, Cloud, Clock, PhoneCall, ChevronDown, PhoneForwarded, RefreshCw, ArrowRight, Pause, Mic, Grid3x3 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 
@@ -94,6 +94,31 @@ export const SalesforceFooter = () => {
 
                   {/* Content */}
                   <div className="p-4 space-y-2 bg-accent/20">
+                    {/* Control Bar */}
+                    <div className="flex items-center justify-center gap-1 bg-muted/50 rounded p-2 mb-3">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                        <Phone className="w-4 h-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                        <PhoneForwarded className="w-4 h-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                        <RefreshCw className="w-4 h-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                        <Pause className="w-4 h-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                        <Mic className="w-4 h-4" />
+                      </Button>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                        <Grid3x3 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                    
                     <div className="text-sm">
                       <span className="font-medium">N° appelant :</span> +33649730514
                     </div>
