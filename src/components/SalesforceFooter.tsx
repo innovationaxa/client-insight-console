@@ -2,10 +2,12 @@ import * as React from "react";
 import { Phone, Star, MessageSquare, Cloud, Clock, PhoneCall, ChevronDown, PhoneForwarded, RefreshCw, ArrowRight, Pause, Mic, Grid3x3, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import { CallReportDialog } from "./CallReportDialog";
 
 export const SalesforceFooter = () => {
   const [queueOpen, setQueueOpen] = React.useState(false);
   const [hasNotification, setHasNotification] = React.useState(false);
+  const [callReportOpen, setCallReportOpen] = React.useState(false);
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const panelRef = React.useRef<HTMLDivElement>(null);
 
@@ -59,7 +61,10 @@ export const SalesforceFooter = () => {
               variant="ghost" 
               size="sm" 
               className="gap-2 relative"
-              onClick={() => setHasNotification(false)}
+              onClick={() => {
+                setHasNotification(false);
+                setCallReportOpen(true);
+              }}
             >
               <Sparkles className="w-4 h-4" />
               <span>CR par IA</span>
@@ -167,6 +172,8 @@ export const SalesforceFooter = () => {
           </div>
         </div>
       </div>
+
+      <CallReportDialog open={callReportOpen} onOpenChange={setCallReportOpen} />
     </footer>
   );
 };
