@@ -110,6 +110,9 @@ export const SalesforceFooter = () => {
                   <div className="p-4 space-y-2 bg-accent/20">
                     {/* Control Bar */}
                     <div className="flex items-center justify-center gap-1 bg-muted/50 rounded p-2 mb-3">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                        <Phone className="w-4 h-4" />
+                      </Button>
                       <Button 
                         variant="ghost" 
                         size="icon" 
@@ -119,9 +122,6 @@ export const SalesforceFooter = () => {
                           setQueueOpen(false);
                         }}
                       >
-                        <Phone className="w-4 h-4" />
-                      </Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
                         <PhoneForwarded className="w-4 h-4" />
                       </Button>
                       <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
