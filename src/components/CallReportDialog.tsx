@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "./ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -12,22 +12,36 @@ import { Sparkles, Mic, Upload, Calendar, User, Phone, FileText } from "lucide-r
 interface CallReportDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onSave: (interaction: { summary: string; type: string; date: string }) => void;
 }
 
-export const CallReportDialog = ({ open, onOpenChange }: CallReportDialogProps) => {
+export const CallReportDialog = ({ open, onOpenChange, onSave }: CallReportDialogProps) => {
   const [selectedEmailContent, setSelectedEmailContent] = React.useState({
     documents: true,
     recommendations: true,
     recap: true
   });
 
-  // Mock data - will be filled via API
-  const mockTranscription = `Durée de l'appel : 00:05:36
+  const [formData, setFormData] = React.useState({
+    summary: `Durée de l'appel : 00:05:36
 Résumé de l'échange :
 - Demande de justificatif : copie de la carte d'identité de Mme Dupond
 - Mme Dupond demande à souscrire un nouveau contrat Auto, contrat en attente de signature
 - Échange concernant la préparation de la retraite : Mme Dupond réfléchit concernant la proposition d'ouverture d'un plan d'épargne retraite
-- Réponses à deux interrogations du client concernant son contrat d'habitation`;
+- Réponses à deux interrogations du client concernant son contrat d'habitation`,
+    type: "phone",
+    date: "2025-08-25"
+  });
+
+  const handleSave = () => {
+    onSave({
+      summary: formData.summary,
+      type: formData.type,
+      date: formData.date
+    });
+    onOpenChange(false);
+  };
+
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -37,6 +51,9 @@ Résumé de l'échange :
             <Sparkles className="w-5 h-5 text-[hsl(265,85%,56%)]" />
             Consigner un échange - CR automatique IA
           </DialogTitle>
+          <DialogDescription className="sr-only">
+            Formulaire de consignation d'échange avec transcription automatique par IA
+          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6 py-4">
@@ -48,7 +65,8 @@ Résumé de l'échange :
               <Badge variant="secondary" className="ml-auto">Généré</Badge>
             </div>
             <Textarea 
-              defaultValue={mockTranscription}
+              value={formData.summary}
+              onChange={(e) => setFormData({...formData, summary: e.target.value})}
               className="min-h-[120px] text-sm bg-background"
             />
             <div className="flex gap-2 mt-3">
@@ -86,7 +104,7 @@ Résumé de l'échange :
                 <Phone className="w-3 h-3" />
                 Type
               </Label>
-              <Select defaultValue="phone">
+              <Select value={formData.type} onValueChange={(value) => setFormData({...formData, type: value})}>
                 <SelectTrigger id="type">
                   <SelectValue />
                 </SelectTrigger>
@@ -124,7 +142,12 @@ Résumé de l'échange :
                 <Calendar className="w-3 h-3" />
                 Date de l'échange
               </Label>
-              <Input id="exchangeDate" type="date" defaultValue="2025-08-25" />
+              <Input 
+                id="exchangeDate" 
+                type="date" 
+                value={formData.date}
+                onChange={(e) => setFormData({...formData, date: e.target.value})}
+              />
             </div>
           </div>
 
@@ -176,10 +199,10 @@ Résumé de l'échange :
           <Button variant="outline" onClick={() => onOpenChange(false)}>
             Annuler
           </Button>
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={handleSave}>
             Enregistrer
           </Button>
-          <Button className="gap-2 bg-[hsl(265,85%,56%)] hover:bg-[hsl(265,85%,66%)]">
+          <Button className="gap-2 bg-[hsl(265,85%,56%)] hover:bg-[hsl(265,85%,66%)]" onClick={handleSave}>
             <Sparkles className="w-4 h-4" />
             Envoyer au client
           </Button>

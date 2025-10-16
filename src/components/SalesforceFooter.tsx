@@ -4,7 +4,11 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { CallReportDialog } from "./CallReportDialog";
 
-export const SalesforceFooter = () => {
+interface SalesforceFooterProps {
+  onAddInteraction: (data: { summary: string; type: string; date: string }) => void;
+}
+
+export const SalesforceFooter = ({ onAddInteraction }: SalesforceFooterProps) => {
   const [queueOpen, setQueueOpen] = React.useState(false);
   const [hasNotification, setHasNotification] = React.useState(false);
   const [callReportOpen, setCallReportOpen] = React.useState(false);
@@ -173,7 +177,11 @@ export const SalesforceFooter = () => {
         </div>
       </div>
 
-      <CallReportDialog open={callReportOpen} onOpenChange={setCallReportOpen} />
+      <CallReportDialog 
+        open={callReportOpen} 
+        onOpenChange={setCallReportOpen}
+        onSave={onAddInteraction}
+      />
     </footer>
   );
 };

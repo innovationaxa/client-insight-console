@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SalesforceHeader } from "@/components/SalesforceHeader";
 import { SalesforceFooter } from "@/components/SalesforceFooter";
 import { AccountCard } from "@/components/AccountCard";
@@ -5,7 +6,28 @@ import { InteractionsPanel } from "@/components/InteractionsPanel";
 import { AccountDetails } from "@/components/AccountDetails";
 import { AIAssistantPanel } from "@/components/AIAssistantPanel";
 
+interface Interaction {
+  id: string;
+  summary: string;
+  type: string;
+  date: string;
+  timestamp: string;
+}
+
 const Index = () => {
+  const [interactions, setInteractions] = useState<Interaction[]>([]);
+
+  const handleAddInteraction = (data: { summary: string; type: string; date: string }) => {
+    const newInteraction: Interaction = {
+      id: Date.now().toString(),
+      summary: data.summary,
+      type: data.type,
+      date: data.date,
+      timestamp: new Date().toISOString()
+    };
+    setInteractions([newInteraction, ...interactions]);
+  };
+
   return (
     <div id="app" className="min-h-screen bg-background flex flex-col">
       <SalesforceHeader />
@@ -15,7 +37,7 @@ const Index = () => {
         <div className="lg:hidden space-y-4">
           <div id="col-left" className="space-y-4">
             <AccountCard />
-            <InteractionsPanel />
+            <InteractionsPanel interactions={interactions} />
           </div>
           <div>
             <AccountDetails />
@@ -30,7 +52,7 @@ const Index = () => {
           {/* Left Column */}
           <div id="col-left" className="lg:col-span-3 space-y-4 overflow-y-auto">
             <AccountCard />
-            <InteractionsPanel />
+            <InteractionsPanel interactions={interactions} />
           </div>
 
           {/* Center Column */}
@@ -45,7 +67,7 @@ const Index = () => {
         </div>
       </main>
       
-      <SalesforceFooter />
+      <SalesforceFooter onAddInteraction={handleAddInteraction} />
     </div>
   );
 };
