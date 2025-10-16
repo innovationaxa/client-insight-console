@@ -1,10 +1,11 @@
 import * as React from "react";
-import { Phone, Star, MessageSquare, Cloud, Clock, PhoneCall, ChevronDown, PhoneForwarded, RefreshCw, ArrowRight, Pause, Mic, Grid3x3 } from "lucide-react";
+import { Phone, Star, MessageSquare, Cloud, Clock, PhoneCall, ChevronDown, PhoneForwarded, RefreshCw, ArrowRight, Pause, Mic, Grid3x3, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 
 export const SalesforceFooter = () => {
   const [queueOpen, setQueueOpen] = React.useState(false);
+  const [hasNotification, setHasNotification] = React.useState(false);
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const panelRef = React.useRef<HTMLDivElement>(null);
 
@@ -54,10 +55,23 @@ export const SalesforceFooter = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <MessageSquare className="w-4 h-4" />
-              <span>Dialogue IA</span>
-            </div>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="gap-2 relative"
+              onClick={() => setHasNotification(false)}
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>CR par IA</span>
+              {hasNotification && (
+                <Badge 
+                  variant="secondary" 
+                  className="ml-1 bg-[hsl(265,85%,56%)] text-white hover:bg-[hsl(265,85%,56%)]"
+                >
+                  1
+                </Badge>
+              )}
+            </Button>
             
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Cloud className="w-4 h-4" />
@@ -96,7 +110,15 @@ export const SalesforceFooter = () => {
                   <div className="p-4 space-y-2 bg-accent/20">
                     {/* Control Bar */}
                     <div className="flex items-center justify-center gap-1 bg-muted/50 rounded p-2 mb-3">
-                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="h-8 w-8 hover:bg-accent"
+                        onClick={() => {
+                          setHasNotification(true);
+                          setQueueOpen(false);
+                        }}
+                      >
                         <Phone className="w-4 h-4" />
                       </Button>
                       <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
