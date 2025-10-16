@@ -48,9 +48,8 @@ Résumé de l'échange :
               <Badge variant="secondary" className="ml-auto">Généré</Badge>
             </div>
             <Textarea 
-              value={mockTranscription}
+              defaultValue={mockTranscription}
               className="min-h-[120px] text-sm bg-background"
-              readOnly
             />
             <div className="flex gap-2 mt-3">
               <Button variant="outline" size="sm" className="gap-2">
@@ -71,7 +70,7 @@ Résumé de l'échange :
                 <FileText className="w-3 h-3" />
                 Objet
               </Label>
-              <Input id="object" value="Échange" readOnly />
+              <Input id="object" defaultValue="Échange" />
             </div>
 
             <div className="space-y-2">
@@ -79,7 +78,7 @@ Résumé de l'échange :
                 <User className="w-3 h-3" />
                 Attribué à
               </Label>
-              <Input id="assignedTo" value="Claire JAMET" readOnly />
+              <Input id="assignedTo" defaultValue="Claire JAMET" />
             </div>
 
             <div className="space-y-2">
@@ -104,7 +103,7 @@ Résumé de l'échange :
                 <User className="w-3 h-3" />
                 Client
               </Label>
-              <Input id="client" value="Sylviane DUPOND" readOnly />
+              <Input id="client" defaultValue="Sylviane DUPOND" />
             </div>
 
             <div className="space-y-2">
