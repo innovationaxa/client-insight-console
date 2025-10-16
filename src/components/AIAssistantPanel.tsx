@@ -352,11 +352,10 @@ export const AIAssistantPanel = () => {
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#2196F3', color: '#1976D2' }}
                   >
                     <Timer className="h-3 w-3" />
-                    Relancer
                   </Button>
                 </div>
               </div>
@@ -448,11 +447,10 @@ export const AIAssistantPanel = () => {
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#2196F3', color: '#1976D2' }}
                   >
                     <Timer className="h-3 w-3" />
-                    Relancer
                   </Button>
                 </div>
               </div>
@@ -544,11 +542,10 @@ export const AIAssistantPanel = () => {
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
+                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
                     style={{ borderColor: '#2196F3', color: '#1976D2' }}
                   >
                     <Timer className="h-3 w-3" />
-                    Relancer
                   </Button>
                 </div>
               </div>
