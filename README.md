@@ -2,6 +2,16 @@
 
 Interface de type Salesforce pour la gestion de fiches clients avec panneau d'assistance IA intégré.
 
+## 🆕 Version statique HTML / CSS / JavaScript
+
+La branche `html-static` fournit une traduction complète de l'interface en fichiers HTML, CSS et JavaScript natifs.
+
+- 📁 Code source : [`static-site/`](static-site/)
+- ▶️ Utilisation : ouvrir `static-site/index.html` dans un navigateur moderne ou servir le dossier avec n'importe quel serveur HTTP.
+- 🧠 Fonctionnalités : onglets, filtres, panneau Genesys, recommandations IA et ajout d'interactions fonctionnent sans dépendances externes.
+
+> Astuce : pour un aperçu rapide, exécuter `npx serve static-site` ou `python -m http.server --directory static-site`.
+
 ![Screenshot](docs/screenshot.png)
 
 ## 🎯 Objectif du projet
