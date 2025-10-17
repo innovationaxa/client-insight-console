@@ -3,35 +3,32 @@ import { Phone, Star, MessageSquare, Cloud, Clock, PhoneCall, ChevronDown, Phone
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { CallReportDialog } from "./CallReportDialog";
-
 interface SalesforceFooterProps {
-  onAddInteraction: (data: { summary: string; type: string; date: string }) => void;
+  onAddInteraction: (data: {
+    summary: string;
+    type: string;
+    date: string;
+  }) => void;
 }
-
-export const SalesforceFooter = ({ onAddInteraction }: SalesforceFooterProps) => {
+export const SalesforceFooter = ({
+  onAddInteraction
+}: SalesforceFooterProps) => {
   const [queueOpen, setQueueOpen] = React.useState(false);
   const [hasNotification, setHasNotification] = React.useState(false);
   const [callReportOpen, setCallReportOpen] = React.useState(false);
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const panelRef = React.useRef<HTMLDivElement>(null);
-
   React.useEffect(() => {
     const onMouseDown = (e: MouseEvent) => {
       if (!queueOpen) return;
       const target = e.target as Node;
-      if (
-        panelRef.current &&
-        !panelRef.current.contains(target) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(target)
-      ) {
+      if (panelRef.current && !panelRef.current.contains(target) && buttonRef.current && !buttonRef.current.contains(target)) {
         setQueueOpen(false);
       }
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setQueueOpen(false);
     };
-
     document.addEventListener("mousedown", onMouseDown);
     document.addEventListener("keydown", onKey);
     return () => {
@@ -39,14 +36,12 @@ export const SalesforceFooter = ({ onAddInteraction }: SalesforceFooterProps) =>
       document.removeEventListener("keydown", onKey);
     };
   }, [queueOpen]);
-
-  return (
-    <footer className="sticky bottom-0 border-t border-border bg-card shadow-lg z-50">
+  return <footer className="sticky bottom-0 border-t border-border bg-card shadow-lg z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-12">
+        <div className="flex items-center justify-between h-12 my-0 mx-0 px-0 py-0">
           {/* Left Section */}
           <div className="flex items-center gap-6">
-            <Button variant="ghost" size="sm" className="gap-2">
+            <Button variant="ghost" size="sm" className="gap-2 py-0">
               <Phone className="w-4 h-4" />
               <span>Demandes Espace Client</span>
               <Badge variant="secondary" className="ml-1">50+</Badge>
@@ -61,25 +56,15 @@ export const SalesforceFooter = ({ onAddInteraction }: SalesforceFooterProps) =>
 
           {/* Right Section */}
           <div className="flex items-center gap-4">
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="gap-2 relative"
-              onClick={() => {
-                setHasNotification(false);
-                setCallReportOpen(true);
-              }}
-            >
+            <Button variant="ghost" size="sm" className="gap-2 relative" onClick={() => {
+            setHasNotification(false);
+            setCallReportOpen(true);
+          }}>
               <Sparkles className="w-4 h-4" />
               <span>CR par IA</span>
-              {hasNotification && (
-                <Badge 
-                  variant="secondary" 
-                  className="ml-1 bg-[hsl(265,85%,56%)] text-white hover:bg-[hsl(265,85%,56%)]"
-                >
+              {hasNotification && <Badge variant="secondary" className="ml-1 bg-[hsl(265,85%,56%)] text-white hover:bg-[hsl(265,85%,56%)]">
                   1
-                </Badge>
-              )}
+                </Badge>}
             </Button>
             
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -88,25 +73,13 @@ export const SalesforceFooter = ({ onAddInteraction }: SalesforceFooterProps) =>
             </div>
             
             <div className="relative">
-              <Button
-                ref={buttonRef}
-                variant="ghost"
-                size="sm"
-                className="gap-2 text-muted-foreground hover:text-foreground"
-                onClick={() => setQueueOpen((v) => !v)}
-              >
+              <Button ref={buttonRef} variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground" onClick={() => setQueueOpen(v => !v)}>
                 <Clock className="w-4 h-4" />
                 <span>En file d'attente</span>
                 <ChevronDown className={`w-3 h-3 transition-transform ${queueOpen ? "rotate-180" : ""}`} />
               </Button>
 
-              {queueOpen && (
-                <div
-                  ref={panelRef}
-                  role="dialog"
-                  aria-label="Détails de la file d'attente"
-                  className="absolute bottom-full right-0 mb-2 w-80 rounded-md border bg-popover text-popover-foreground shadow-md z-50 animate-in slide-in-from-bottom-2"
-                >
+              {queueOpen && <div ref={panelRef} role="dialog" aria-label="Détails de la file d'attente" className="absolute bottom-full right-0 mb-2 w-80 rounded-md border bg-popover text-popover-foreground shadow-md z-50 animate-in slide-in-from-bottom-2">
                   {/* Header */}
                   <div className="bg-primary text-primary-foreground p-3 rounded-t-md">
                     <div className="flex items-center gap-2">
@@ -122,15 +95,10 @@ export const SalesforceFooter = ({ onAddInteraction }: SalesforceFooterProps) =>
                       <Button variant="ghost" size="icon" className="h-8 w-8" disabled>
                         <Phone className="w-4 h-4" />
                       </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
-                        className="h-8 w-8 hover:bg-accent"
-                        onClick={() => {
-                          setHasNotification(true);
-                          setQueueOpen(false);
-                        }}
-                      >
+                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent" onClick={() => {
+                    setHasNotification(true);
+                    setQueueOpen(false);
+                  }}>
                         <PhoneForwarded className="w-4 h-4" />
                       </Button>
                       <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
@@ -170,18 +138,12 @@ export const SalesforceFooter = ({ onAddInteraction }: SalesforceFooterProps) =>
                     <div className="text-center text-xs text-muted-foreground mb-2">Genesys Cloud</div>
                     <Button className="w-full" size="sm">En file d'attente</Button>
                   </div>
-                </div>
-              )}
+                </div>}
             </div>
           </div>
         </div>
       </div>
 
-      <CallReportDialog 
-        open={callReportOpen} 
-        onOpenChange={setCallReportOpen}
-        onSave={onAddInteraction}
-      />
-    </footer>
-  );
+      <CallReportDialog open={callReportOpen} onOpenChange={setCallReportOpen} onSave={onAddInteraction} />
+    </footer>;
 };

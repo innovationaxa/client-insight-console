@@ -40,10 +40,9 @@ const AccordionSection = ({
 };
 export const AIAssistantPanel = () => {
   const [viewMode, setViewMode] = useState<"preparation" | "live">("preparation");
-
   return <div id="col-right" className="h-full flex flex-col">
       <Card id="ai-panel" className="shadow-lg flex flex-col min-h-full overflow-hidden bg-card">
-        <CardHeader className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground flex-shrink-0 py-3 px-4">
+        <CardHeader className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground flex-shrink-0 py-[5px] px-[12px]">
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Sparkles className="h-5 w-5" />
@@ -60,17 +59,11 @@ export const AIAssistantPanel = () => {
         {/* Tabs */}
         <Tabs defaultValue="synthese" className="flex-1 flex flex-col overflow-hidden">
           <TabsList className="w-full rounded-none border-b bg-transparent p-0 h-auto flex-shrink-0">
-            <TabsTrigger 
-              value="synthese" 
-              className="flex-1 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none py-3"
-            >
+            <TabsTrigger value="synthese" className="flex-1 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none py-3">
               <FileText className="h-4 w-4 mr-2" />
               Synthèse 360
             </TabsTrigger>
-            <TabsTrigger 
-              value="pistes" 
-              className="flex-1 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none py-3"
-            >
+            <TabsTrigger value="pistes" className="flex-1 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none py-3">
               <Lightbulb className="h-4 w-4 mr-2" />
               Pistes Commerciales
             </TabsTrigger>
@@ -110,7 +103,7 @@ export const AIAssistantPanel = () => {
 
               {/* Stats Bar */}
               <div className="grid grid-cols-3 gap-2">
-                <Card>
+                <Card className="py-0 px-0 mx-0 my-0">
                   <CardContent className="p-3 text-center">
                     <div className="text-2xl font-bold text-primary">22</div>
                     <div className="text-xs text-muted-foreground">Ancienneté</div>
@@ -242,20 +235,10 @@ export const AIAssistantPanel = () => {
             <div className="flex items-center justify-between pb-2 border-b">
               <h3 className="text-sm font-semibold">Recommandations (3)</h3>
               <div className="flex gap-1">
-                <Button 
-                  size="sm" 
-                  variant={viewMode === "preparation" ? "default" : "ghost"}
-                  className="h-7 text-xs"
-                  onClick={() => setViewMode("preparation")}
-                >
+                <Button size="sm" variant={viewMode === "preparation" ? "default" : "ghost"} className="h-7 text-xs" onClick={() => setViewMode("preparation")}>
                   Préparation
                 </Button>
-                <Button 
-                  size="sm" 
-                  variant={viewMode === "live" ? "default" : "ghost"}
-                  className="h-7 text-xs"
-                  onClick={() => setViewMode("live")}
-                >
+                <Button size="sm" variant={viewMode === "live" ? "default" : "ghost"} className="h-7 text-xs" onClick={() => setViewMode("live")}>
                   Live
                 </Button>
               </div>
@@ -279,8 +262,7 @@ export const AIAssistantPanel = () => {
               </div>
               
               <div className="p-3 space-y-3">
-                {viewMode === "preparation" ? (
-                  <>
+                {viewMode === "preparation" ? <>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <DollarSign className="h-4 w-4 text-success flex-shrink-0 mt-0.5" />
@@ -309,9 +291,7 @@ export const AIAssistantPanel = () => {
                         💡 Tip conseiller : Insister sur la double casquette épargne + transmission
                       </p>
                     </div>
-                  </>
-                ) : (
-                  <div className="space-y-1.5">
+                  </> : <div className="space-y-1.5">
                     <div className="flex items-center gap-2 text-xs">
                       <DollarSign className="h-3 w-3 text-success" />
                       <span>Avantages fiscaux transmission</span>
@@ -324,37 +304,32 @@ export const AIAssistantPanel = () => {
                       <Lock className="h-3 w-3 text-success" />
                       <span>Disponible après 8 ans</span>
                     </div>
-                  </div>
-                )}
+                  </div>}
                 
                 <div className="flex gap-1 pt-2">
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#A855F7', color: '#9333EA' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#A855F7',
+                  color: '#9333EA'
+                }}>
                     <Calendar className="h-3 w-3" />
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#FF6B35', color: '#FF5722' }}
-                  >
+                  <Button size="sm" className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#FF6B35',
+                  color: '#FF5722'
+                }}>
                     <Target className="h-3 w-3" />
                     Opportunité
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#FFA726', color: '#F57C00' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#FFA726',
+                  color: '#F57C00'
+                }}>
                     <ThumbsDown className="h-3 w-3" />
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#2196F3', color: '#1976D2' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#2196F3',
+                  color: '#1976D2'
+                }}>
                     <Timer className="h-3 w-3" />
                   </Button>
                 </div>
@@ -379,8 +354,7 @@ export const AIAssistantPanel = () => {
               </div>
               
               <div className="p-3 space-y-3">
-                {viewMode === "preparation" ? (
-                  <>
+                {viewMode === "preparation" ? <>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <Shield className="h-4 w-4 text-warning flex-shrink-0 mt-0.5" />
@@ -404,9 +378,7 @@ export const AIAssistantPanel = () => {
                         </div>
                       </div>
                     </div>
-                  </>
-                ) : (
-                  <div className="space-y-1.5">
+                  </> : <div className="space-y-1.5">
                     <div className="flex items-center gap-2 text-xs">
                       <Shield className="h-3 w-3 text-warning" />
                       <span>Protection jeunes adultes</span>
@@ -419,37 +391,32 @@ export const AIAssistantPanel = () => {
                       <CheckCircle2 className="h-3 w-3 text-warning" />
                       <span>Téléconsultation incluse</span>
                     </div>
-                  </div>
-                )}
+                  </div>}
                 
                 <div className="flex gap-1 pt-2">
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#A855F7', color: '#9333EA' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#A855F7',
+                  color: '#9333EA'
+                }}>
                     <Calendar className="h-3 w-3" />
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#FF6B35', color: '#FF5722' }}
-                  >
+                  <Button size="sm" className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#FF6B35',
+                  color: '#FF5722'
+                }}>
                     <Target className="h-3 w-3" />
                     Opportunité
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#FFA726', color: '#F57C00' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#FFA726',
+                  color: '#F57C00'
+                }}>
                     <ThumbsDown className="h-3 w-3" />
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#2196F3', color: '#1976D2' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#2196F3',
+                  color: '#1976D2'
+                }}>
                     <Timer className="h-3 w-3" />
                   </Button>
                 </div>
@@ -474,8 +441,7 @@ export const AIAssistantPanel = () => {
               </div>
               
               <div className="p-3 space-y-3">
-                {viewMode === "preparation" ? (
-                  <>
+                {viewMode === "preparation" ? <>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <Home className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
@@ -499,9 +465,7 @@ export const AIAssistantPanel = () => {
                         </div>
                       </div>
                     </div>
-                  </>
-                ) : (
-                  <div className="space-y-1.5">
+                  </> : <div className="space-y-1.5">
                     <div className="flex items-center gap-2 text-xs">
                       <Home className="h-3 w-3 text-primary" />
                       <span>Protection zone côtière</span>
@@ -514,37 +478,32 @@ export const AIAssistantPanel = () => {
                       <DollarSign className="h-3 w-3 text-primary" />
                       <span>-20% remise multi-contrats</span>
                     </div>
-                  </div>
-                )}
+                  </div>}
                 
                 <div className="flex gap-1 pt-2">
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#A855F7', color: '#9333EA' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#A855F7',
+                  color: '#9333EA'
+                }}>
                     <Calendar className="h-3 w-3" />
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#FF6B35', color: '#FF5722' }}
-                  >
+                  <Button size="sm" className="flex-1 h-7 text-[11px] bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#FF6B35',
+                  color: '#FF5722'
+                }}>
                     <Target className="h-3 w-3" />
                     Opportunité
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#FFA726', color: '#F57C00' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#FFA726',
+                  color: '#F57C00'
+                }}>
                     <ThumbsDown className="h-3 w-3" />
                   </Button>
-                  <Button 
-                    size="sm" 
-                    className="h-7 px-2 bg-white border-2 hover:bg-white/90"
-                    style={{ borderColor: '#2196F3', color: '#1976D2' }}
-                  >
+                  <Button size="sm" className="h-7 px-2 bg-white border-2 hover:bg-white/90" style={{
+                  borderColor: '#2196F3',
+                  color: '#1976D2'
+                }}>
                     <Timer className="h-3 w-3" />
                   </Button>
                 </div>
