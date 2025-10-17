@@ -22,6 +22,8 @@ export const CallReportDialog = ({ open, onOpenChange, onSave }: CallReportDialo
     recap: true
   });
 
+  const [recommendationsText, setRecommendationsText] = React.useState("");
+
   const [formData, setFormData] = React.useState({
     summary: `Durée de l'appel : 00:05:36
 Résumé de l'échange :
@@ -167,17 +169,27 @@ Résumé de l'échange :
                   Documents requis
                 </label>
               </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox 
-                  id="recommendations" 
-                  checked={selectedEmailContent.recommendations}
-                  onCheckedChange={(checked) => 
-                    setSelectedEmailContent(prev => ({ ...prev, recommendations: checked as boolean }))
-                  }
-                />
-                <label htmlFor="recommendations" className="text-sm font-medium cursor-pointer">
-                  Recommandations personnalisées
-                </label>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <Checkbox 
+                    id="recommendations" 
+                    checked={selectedEmailContent.recommendations}
+                    onCheckedChange={(checked) => 
+                      setSelectedEmailContent(prev => ({ ...prev, recommendations: checked as boolean }))
+                    }
+                  />
+                  <label htmlFor="recommendations" className="text-sm font-medium cursor-pointer">
+                    Recommandations personnalisées
+                  </label>
+                </div>
+                {selectedEmailContent.recommendations && (
+                  <Textarea
+                    placeholder="Saisissez vos recommandations personnalisées..."
+                    value={recommendationsText}
+                    onChange={(e) => setRecommendationsText(e.target.value)}
+                    className="mt-2 min-h-[80px]"
+                  />
+                )}
               </div>
               <div className="flex items-center space-x-2">
                 <Checkbox 
