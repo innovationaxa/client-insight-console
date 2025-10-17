@@ -429,7 +429,7 @@ export const AIAssistantPanel = () => {
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-bold">Assurance Habitation Secondaire</span>
-                    <Badge className="bg-primary text-primary-foreground text-[10px] h-5">Score 7/10</Badge>
+                    <Badge className="bg-primary text-primary-foreground text-[10px] h-5 whitespace-nowrap px-1.5">Score 7/10</Badge>
                   </div>
                 </div>
                 <div className="flex items-start gap-2 bg-white/50 p-2 rounded">
