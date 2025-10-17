@@ -60,18 +60,18 @@ const Index = () => {
         {/* Desktop: Full height grid layout */}
         <div className="hidden lg:grid lg:grid-cols-12 gap-4 h-[calc(100vh-5rem)]">
           {/* Left Column */}
-          <div id="col-left" className="lg:col-span-3 space-y-4 overflow-y-auto">
+          <div id="col-left" className="lg:col-span-3 space-y-4 overflow-y-auto scrollbar-hide">
             <AccountCard />
             <InteractionsPanel interactions={interactions} />
           </div>
 
           {/* Center Column */}
-          <div className="lg:col-span-6 overflow-y-auto">
+          <div className="lg:col-span-6 overflow-y-auto scrollbar-hide">
             <AccountDetails />
           </div>
 
           {/* Right Column - AI Panel */}
-          <div className="lg:col-span-3 overflow-y-auto">
+          <div className="lg:col-span-3 overflow-y-auto scrollbar-hide">
             <AIAssistantPanel />
           </div>
         </div>

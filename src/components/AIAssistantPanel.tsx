@@ -70,7 +70,7 @@ export const AIAssistantPanel = () => {
           </TabsList>
 
           {/* Synthèse 360 Tab */}
-          <TabsContent value="synthese" className="flex-1 overflow-y-auto mt-0">
+          <TabsContent value="synthese" className="flex-1 overflow-y-auto scrollbar-hide mt-0">
             {/* Key Info Header */}
             <div className="p-4 space-y-4 border-b">
               {/* Client Identity Card */}
@@ -203,7 +203,7 @@ export const AIAssistantPanel = () => {
           </TabsContent>
 
           {/* Pistes Commerciales Tab */}
-          <TabsContent value="pistes" className="flex-1 overflow-y-auto mt-0 p-4 space-y-4">
+          <TabsContent value="pistes" className="flex-1 overflow-y-auto scrollbar-hide mt-0 p-4 space-y-4">
             {/* Life Moments */}
             <div className="space-y-2">
               <h3 className="text-xs font-semibold text-muted-foreground uppercase">Moments de vie détectés</h3>
