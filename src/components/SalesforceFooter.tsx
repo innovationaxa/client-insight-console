@@ -89,7 +89,7 @@ export const SalesforceFooter = ({
                   </div>
 
                   {/* Content */}
-                  <div className="p-4 space-y-2 bg-accent/20">
+                  <div className="p-4 space-y-2 bg-[hsl(178,79%,41%)]/20">
                     {/* Control Bar */}
                     <div className="flex items-center justify-center gap-1 bg-muted/50 rounded p-2 mb-3">
                       <Button variant="ghost" size="icon" className="h-8 w-8" disabled>
