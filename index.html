@@ -1,24 +1,889 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Console Distributeurs - Fiche Client Salesforce</title>
-    <meta name="description" content="Interface de gestion client Salesforce avec assistant IA intégré pour les distributeurs" />
-    <meta name="author" content="Lovable" />
-
-    <meta property="og:title" content="2a7b8d76-f6ca-4fee-9067-ad46d1f00689" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <title>Console Distributeurs - Fiche Client</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
-
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app">
+      <header class="sf-header">
+        <div class="top-bar container">
+          <button class="btn btn-ghost btn-icon-lg" aria-label="Ouvrir le sélecteur d'applications">
+            <i data-lucide="grid-3x3" class="icon-20"></i>
+          </button>
+          <div class="logo-group">
+            <div class="logo-badge">SF</div>
+            <span class="logo-text">Console Distributeurs</span>
+          </div>
+          <div class="search">
+            <i data-lucide="search" class="icon-16 icon"></i>
+            <input class="input" type="search" placeholder="Rechercher..." aria-label="Rechercher" />
+          </div>
+          <div class="header-actions">
+            <button class="btn btn-ghost btn-icon" aria-label="Notifications">
+              <i data-lucide="bell" class="icon-16"></i>
+            </button>
+            <button class="btn btn-ghost btn-icon" aria-label="Aide">
+              <i data-lucide="help-circle" class="icon-16"></i>
+            </button>
+            <button class="btn btn-ghost btn-icon" aria-label="Profil utilisateur">
+              <i data-lucide="user" class="icon-16"></i>
+            </button>
+          </div>
+        </div>
+        <nav class="breadcrumb">
+          <span>Console Distributeurs</span>
+          <span aria-hidden="true">›</span>
+          <strong>Compte</strong>
+        </nav>
+      </header>
+
+      <main class="sf-main">
+        <div class="container">
+          <div class="columns-grid">
+            <section class="column" id="col-left">
+              <article class="card shadow-lg" id="card-account">
+                <header class="card-header account-header">
+                  <div class="account-title">
+                    <i data-lucide="file-text" class="icon-20"></i>
+                    <div>
+                      <h2 class="card-title">Compte Particulier</h2>
+                      <p class="account-subtitle">Client</p>
+                    </div>
+                  </div>
+                </header>
+                <div class="card-content account-content">
+                  <section class="account-section">
+                    <h3 class="sr-only">Coordonnées</h3>
+                    <ul class="account-list">
+                      <li>
+                        <i data-lucide="mail" class="icon-16 muted"></i>
+                        <span class="break">sdufatklife@wanadoo.fr</span>
+                      </li>
+                      <li>
+                        <i data-lucide="phone" class="icon-16 muted"></i>
+                        <span>06 98 86 35 02</span>
+                      </li>
+                      <li>
+                        <i data-lucide="map-pin" class="icon-16 muted"></i>
+                        <span>1660 CHEMIN CLERGAT<br />64290 LASSEUBE France</span>
+                      </li>
+                      <li>
+                        <i data-lucide="calendar" class="icon-16 muted"></i>
+                        <span>31/05/1964<br /><span class="muted">41 ans</span></span>
+                      </li>
+                    </ul>
+                  </section>
+                  <div class="separator"></div>
+                  <section class="account-section">
+                    <h3 class="sr-only">Identifiants</h3>
+                    <ul class="account-list">
+                      <li>
+                        <i data-lucide="hash" class="icon-16 muted"></i>
+                        <div>
+                          <span class="muted text-xs">N° foyer / N° abonné</span>
+                          <span class="mono">0033682587 / 0221765483</span>
+                        </div>
+                      </li>
+                      <li>
+                        <i data-lucide="hash" class="icon-16 muted"></i>
+                        <div>
+                          <span class="muted text-xs">N° de portefeuille</span>
+                          <span class="mono">0001022144</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </article>
+
+              <article class="card shadow-lg" id="panel-interactions">
+                <header class="card-header">
+                  <div class="tabs" data-tabs="interactions">
+                    <div class="tabs-triggers" role="tablist">
+                      <button class="tab-trigger" role="tab" data-tab-target="tab-interactions" aria-controls="tab-interactions" aria-selected="true">Interactions Clients</button>
+                      <button class="tab-trigger" role="tab" data-tab-target="tab-notes" aria-controls="tab-notes" aria-selected="false">Notes</button>
+                    </div>
+                    <section id="tab-interactions" class="tab-panel is-active" role="tabpanel">
+                      <div class="interaction-actions">
+                        <button class="btn btn-outline w-full" type="button">
+                          <i data-lucide="message-square" class="icon-16 teal"></i>
+                          <span class="text-primary">Consigner un échange</span>
+                        </button>
+                        <button class="btn btn-outline w-full" type="button">
+                          <i data-lucide="calendar" class="icon-16 purple"></i>
+                          <span class="text-primary">Créer un RDV</span>
+                        </button>
+                      </div>
+
+                      <h3 class="panel-heading">Filtres</h3>
+                      <ul class="filters-list">
+                        <li>
+                          <label class="filter-item">
+                            <span class="checkbox" role="checkbox" tabindex="0" data-checkbox data-key="network" aria-checked="false"></span>
+                            <span>Client - Réseau</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="filter-item">
+                            <span class="checkbox" role="checkbox" tabindex="0" data-checkbox data-key="company" aria-checked="false"></span>
+                            <span>Client - Compagnie</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="filter-item">
+                            <span class="checkbox" role="checkbox" tabindex="0" data-checkbox data-key="exchange" aria-checked="false"></span>
+                            <span>Échange</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="filter-item">
+                            <span class="checkbox" role="checkbox" tabindex="0" data-checkbox data-key="rdv" aria-checked="false"></span>
+                            <span>RDV</span>
+                          </label>
+                        </li>
+                      </ul>
+
+                      <div class="interactions-list" data-interactions-list>
+                        <p class="empty-state">Aucune interaction disponible</p>
+                      </div>
+                    </section>
+                    <section id="tab-notes" class="tab-panel" role="tabpanel" aria-hidden="true">
+                      <p class="muted text-sm">Aucune note disponible</p>
+                    </section>
+                  </div>
+                </header>
+              </article>
+            </section>
+
+            <section class="column" id="col-center">
+              <article class="card shadow-lg" id="card-account-header">
+                <header class="card-header account-summary">
+                  <div class="summary-top">
+                    <div class="summary-identity">
+                      <div class="avatar-circle">
+                        <i data-lucide="user" class="icon-20"></i>
+                      </div>
+                      <div>
+                        <div class="summary-title">
+                          <h1 class="summary-name">Mme DUPOND SYLVIANE</h1>
+                          <button class="btn btn-ghost btn-icon" type="button" aria-label="Modifier le compte">
+                            <i data-lucide="edit" class="icon-16"></i>
+                          </button>
+                        </div>
+                        <p class="muted text-sm">Compte</p>
+                      </div>
+                    </div>
+                    <div class="summary-actions">
+                      <button class="btn btn-outline btn-sm" type="button">Rafraîchir</button>
+                      <button class="btn btn-primary btn-sm" type="button">Accès vision consolidée</button>
+                    </div>
+                  </div>
+
+                  <div class="summary-grid">
+                    <div>
+                      <span class="muted text-xs">Propriétaire du compte</span>
+                      <p class="summary-strong">BENOIT TES 🔺</p>
+                      <p class="summary-pill">TLAB</p>
+                    </div>
+                    <div>
+                      <span class="muted text-xs">Rôle</span>
+                      <p class="summary-strong">Personne Principale</p>
+                    </div>
+                    <div>
+                      <span class="muted text-xs">Indices</span>
+                      <span class="badge badge-secondary">3</span>
+                    </div>
+                    <div>
+                      <span class="muted text-xs">Score de préqualification crédit</span>
+                      <p class="summary-strong">CP</p>
+                    </div>
+                  </div>
+
+                  <div class="separator"></div>
+
+                  <div class="summary-grid two-cols">
+                    <div>
+                      <span class="muted text-xs">Origine client</span>
+                      <p class="summary-strong">CADRE ENTREP.</p>
+                    </div>
+                    <div>
+                      <span class="muted text-xs">Profession précise</span>
+                      <p class="summary-strong">CADRE ENTREP.</p>
+                    </div>
+                  </div>
+                </header>
+              </article>
+
+              <article class="card shadow-lg" id="tabs-main">
+                <div class="tabs" data-tabs="main">
+                  <div class="tabs-triggers" role="tablist">
+                    <button class="tab-trigger" role="tab" data-tab-target="main-details" aria-controls="main-details" aria-selected="true">Détails</button>
+                    <button class="tab-trigger" role="tab" data-tab-target="main-contrats" aria-controls="main-contrats" aria-selected="false">Contrats</button>
+                    <button class="tab-trigger" role="tab" data-tab-target="main-opportunites" aria-controls="main-opportunites" aria-selected="false">Opportunités &amp; Patrimoine</button>
+                    <button class="tab-trigger" role="tab" data-tab-target="main-demandes" aria-controls="main-demandes" aria-selected="false">Demandes &amp; Sinistres</button>
+                    <button class="tab-trigger" role="tab" data-tab-target="main-plus" aria-controls="main-plus" aria-selected="false">Plus</button>
+                  </div>
+
+                  <section id="main-details" class="tab-panel is-active" role="tabpanel">
+                    <div class="sub-tabs" role="tablist">
+                      <button class="sub-tab is-active" data-subtab="infos-generales">Informations Générales</button>
+                      <button class="sub-tab" data-subtab="coordonnees">Coordonnées</button>
+                      <button class="sub-tab" data-subtab="client-digital">Client Digital</button>
+                    </div>
+
+                    <section class="details-section" data-subtab-panel="infos-generales">
+                      <h3 class="details-title">État civil</h3>
+                      <div class="details-grid">
+                        <div>
+                          <span class="muted text-xs">Nom du compte</span>
+                          <p class="detail-value">Mme DUPOND SYLVIANE</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Sexe</span>
+                          <p class="detail-value">Féminin</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Nom de naissance</span>
+                          <p class="detail-value">GEORGIE</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Prénom 2</span>
+                          <p class="detail-value">-</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Prénom 3</span>
+                          <p class="detail-value">-</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Date de naissance</span>
+                          <p class="detail-value">31/05/1964</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Âge</span>
+                          <p class="detail-value">41 ans</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Ville de naissance</span>
+                          <p class="detail-value">BERNE</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Pays de naissance</span>
+                          <p class="detail-value">Suisse</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Département de naissance</span>
+                          <p class="detail-value">99</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Nationalité</span>
+                          <p class="detail-value">France</p>
+                        </div>
+                        <div>
+                          <span class="muted text-xs">Nationalité 2</span>
+                          <p class="detail-value">-</p>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="details-section hidden" data-subtab-panel="coordonnees">
+                      <p class="muted text-sm">Coordonnées en cours d'affichage...</p>
+                    </section>
+                    <section class="details-section hidden" data-subtab-panel="client-digital">
+                      <p class="muted text-sm">Informations digitales en cours d'affichage...</p>
+                    </section>
+                  </section>
+
+                  <section id="main-contrats" class="tab-panel" role="tabpanel" aria-hidden="true">
+                    <div class="tabs" data-tabs="contrats">
+                      <div class="tabs-triggers" role="tablist">
+                        <button class="tab-trigger" role="tab" data-tab-target="contrats-actifs" aria-controls="contrats-actifs" aria-selected="true">
+                          <i data-lucide="check" class="icon-16"></i>
+                          Actifs
+                        </button>
+                        <button class="tab-trigger" role="tab" data-tab-target="contrats-inactifs" aria-controls="contrats-inactifs" aria-selected="false">
+                          <i data-lucide="x" class="icon-16"></i>
+                          Inactifs
+                        </button>
+                        <button class="tab-trigger" role="tab" data-tab-target="contrats-panorama" aria-controls="contrats-panorama" aria-selected="false">
+                          <i data-lucide="wallet" class="icon-16"></i>
+                          Panorama Banque
+                        </button>
+                      </div>
+
+                      <section id="contrats-actifs" class="tab-panel is-active" role="tabpanel">
+                        <div class="collapsible is-open" data-collapsible>
+                          <button class="collapsible-trigger" data-collapsible-trigger>
+                            <div class="collapsible-label">
+                              <span class="icon-pill">
+                                <i data-lucide="building-2" class="icon-16"></i>
+                              </span>
+                              <span class="collapsible-title">IARD (3)</span>
+                            </div>
+                            <i data-lucide="chevron-up" class="icon-16 chevron"></i>
+                          </button>
+                          <div class="collapsible-content" data-collapsible-content>
+                            <div class="collapsible-inner">
+                              <p class="muted text-xs">
+                                3 éléments • Trié(s) par Spécificité • Filtré par Famille de Branche, Situation, Désactivé • Mis à jour il y a quelques secondes
+                              </p>
+                              <div class="collapsible-actions">
+                                <button class="btn btn-outline btn-icon" type="button" aria-label="Paramètres">
+                                  <i data-lucide="settings" class="icon-16"></i>
+                                </button>
+                                <button class="btn btn-outline btn-icon" type="button" aria-label="Rafraîchir">
+                                  <i data-lucide="rotate-cw" class="icon-16"></i>
+                                </button>
+                              </div>
+                              <div class="table-wrapper">
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Type</th>
+                                      <th>Nom de Co...</th>
+                                      <th>N° Contrat AXA</th>
+                                      <th>Spécificité</th>
+                                      <th>Date d'effet</th>
+                                      <th>Situation</th>
+                                      <th>Cotisation ...</th>
+                                      <th>Fractionne...</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>1</td>
+                                      <td><i data-lucide="building-2" class="icon-20 text-primary"></i></td>
+                                      <td>IMMEUBLE</td>
+                                      <td><a href="#" class="link">0000003624787404</a></td>
+                                      <td></td>
+                                      <td>01/04/2008</td>
+                                      <td>en cours</td>
+                                      <td>796,00 €</td>
+                                      <td>S</td>
+                                    </tr>
+                                    <tr>
+                                      <td>2</td>
+                                      <td><i data-lucide="car" class="icon-20 text-primary"></i></td>
+                                      <td>MON AUTO</td>
+                                      <td><a href="#" class="link">0000080114634904</a></td>
+                                      <td>AA-001-AA</td>
+                                      <td>06/10/2025</td>
+                                      <td>en cours</td>
+                                      <td>341,00 €</td>
+                                      <td>M</td>
+                                    </tr>
+                                    <tr>
+                                      <td>3</td>
+                                      <td><i data-lucide="car" class="icon-20 text-primary"></i></td>
+                                      <td>MON AUTO</td>
+                                      <td><a href="#" class="link">0000080114635004</a></td>
+                                      <td>AA-001-AA</td>
+                                      <td>06/10/2025</td>
+                                      <td>en cours</td>
+                                      <td>323,00 €</td>
+                                      <td>M</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="collapsible-footer">
+                                <button class="btn btn-ghost text-primary" type="button">Afficher tout</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="collapsible" data-collapsible>
+                          <button class="collapsible-trigger" data-collapsible-trigger>
+                            <div class="collapsible-label">
+                              <span class="icon-pill">
+                                <span class="emoji">🎁</span>
+                              </span>
+                              <span class="collapsible-title">Prévoyance (0)</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="icon-16 chevron"></i>
+                          </button>
+                          <div class="collapsible-content" data-collapsible-content>
+                            <div class="collapsible-inner">
+                              <p class="muted text-sm">Aucun contrat de prévoyance</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="collapsible" data-collapsible>
+                          <button class="collapsible-trigger" data-collapsible-trigger>
+                            <div class="collapsible-label">
+                              <span class="icon-pill">
+                                <span class="emoji">💰</span>
+                              </span>
+                              <span class="collapsible-title">Epargne / Retraite (0)</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="icon-16 chevron"></i>
+                          </button>
+                          <div class="collapsible-content" data-collapsible-content>
+                            <div class="collapsible-inner">
+                              <p class="muted text-sm">Aucun contrat d'épargne ou retraite</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="collapsible" data-collapsible>
+                          <button class="collapsible-trigger" data-collapsible-trigger>
+                            <div class="collapsible-label">
+                              <span class="icon-pill">
+                                <span class="emoji">🛡️</span>
+                              </span>
+                              <span class="collapsible-title">Santé (0)</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="icon-16 chevron"></i>
+                          </button>
+                          <div class="collapsible-content" data-collapsible-content>
+                            <div class="collapsible-inner">
+                              <p class="muted text-sm">Aucun contrat de santé</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="collapsible" data-collapsible>
+                          <button class="collapsible-trigger" data-collapsible-trigger>
+                            <div class="collapsible-label">
+                              <span class="icon-pill">
+                                <span class="emoji">💵</span>
+                              </span>
+                              <span class="collapsible-title">Banque (0)</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="icon-16 chevron"></i>
+                          </button>
+                          <div class="collapsible-content" data-collapsible-content>
+                            <div class="collapsible-inner">
+                              <p class="muted text-sm">Aucun contrat bancaire</p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section id="contrats-inactifs" class="tab-panel" role="tabpanel" aria-hidden="true">
+                        <div class="panel-placeholder">Aucun contrat inactif</div>
+                      </section>
+
+                      <section id="contrats-panorama" class="tab-panel" role="tabpanel" aria-hidden="true">
+                        <div class="panel-placeholder">Vue panorama banque</div>
+                      </section>
+                    </div>
+                  </section>
+
+                  <section id="main-opportunites" class="tab-panel" role="tabpanel" aria-hidden="true">
+                    <p class="muted text-sm">Opportunités et patrimoine en cours d'affichage...</p>
+                  </section>
+
+                  <section id="main-demandes" class="tab-panel" role="tabpanel" aria-hidden="true">
+                    <p class="muted text-sm">Demandes et sinistres en cours d'affichage...</p>
+                  </section>
+
+                  <section id="main-plus" class="tab-panel" role="tabpanel" aria-hidden="true">
+                    <p class="muted text-sm">Informations complémentaires en cours d'affichage...</p>
+                  </section>
+                </div>
+              </article>
+            </section>
+
+            <section class="column" id="col-right">
+              <article class="card shadow-lg ai-panel">
+                <header class="card-header ai-header">
+                  <div class="ai-title">
+                    <span class="icon-pill gradient"><i data-lucide="sparkles" class="icon-20"></i></span>
+                    <h2>Mon Assistant IA</h2>
+                  </div>
+                  <button class="btn btn-outline btn-sm talk-to-ai" type="button">
+                    <i data-lucide="message-square" class="icon-16"></i>
+                    Parler à IA
+                  </button>
+                </header>
+
+                <div class="tabs ai-tabs" data-tabs="ai">
+                  <div class="tabs-triggers" role="tablist">
+                    <button class="tab-trigger" role="tab" data-tab-target="ai-synthese" aria-controls="ai-synthese" aria-selected="true">
+                      <i data-lucide="file-text" class="icon-16"></i>
+                      Synthèse 360
+                    </button>
+                    <button class="tab-trigger" role="tab" data-tab-target="ai-pistes" aria-controls="ai-pistes" aria-selected="false">
+                      <i data-lucide="lightbulb" class="icon-16"></i>
+                      Pistes Commerciales
+                    </button>
+                  </div>
+
+                  <section id="ai-synthese" class="tab-panel is-active" role="tabpanel">
+                    <div class="ai-surface">
+                      <div class="ai-view-toggle">
+                        <div class="view-toggle" role="tablist">
+                          <button type="button" data-view="preparation" data-active="true">Préparation</button>
+                          <button type="button" data-view="live">Live</button>
+                        </div>
+                      </div>
+
+                      <section class="ai-section">
+                        <div class="ai-card gradient">
+                          <p class="muted text-sm">Cadre Entreprise</p>
+                          <div class="ai-grid small">
+                            <span>🎂 41 ans</span>
+                            <span>👨‍👩‍👧‍👦 Mariée, 2 enfants</span>
+                            <span>📍 Lasseube (64)</span>
+                            <span>🏡 + résidence Biarritz</span>
+                          </div>
+                        </div>
+                        <div class="ai-grid stats">
+                          <div class="ai-card center">
+                            <strong class="stat-primary">22</strong>
+                            <span class="muted text-xs">Ancienneté</span>
+                          </div>
+                          <div class="ai-card center">
+                            <strong class="stat-primary">3</strong>
+                            <span class="muted text-xs">Score fidélité</span>
+                          </div>
+                          <div class="ai-card center">
+                            <strong class="stat-success">0</strong>
+                            <span class="muted text-xs">Incidents</span>
+                          </div>
+                        </div>
+                        <div class="ai-card alert">
+                          <div class="alert-row">
+                            <i data-lucide="alert-circle" class="icon-16"></i>
+                            <div>
+                              <p class="alert-title">⚠️ Complétude KYC : 50%</p>
+                              <p class="muted text-xs">📋 Pièces d'identité obligatoires à collecter</p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section class="ai-accordion" data-accordion>
+                        <div class="collapsible accordion-item is-open" data-collapsible>
+                          <button class="collapsible-trigger" data-collapsible-trigger>
+                            <div class="collapsible-label">
+                              <i data-lucide="home" class="icon-16 text-primary"></i>
+                              <span>Contrats</span>
+                            </div>
+                            <i data-lucide="chevron-up" class="icon-16 chevron"></i>
+                          </button>
+                          <div class="collapsible-content" data-collapsible-content>
+                            <div class="collapsible-inner">
+                              <div class="ai-card info">
+                                <div class="ai-card-head">
+                                  <span class="muted text-xs">Contrats actifs</span>
+                                  <span class="badge badge-outline">5</span>
+                                </div>
+                                <p class="muted text-xs">1 Auto • 2 Habitation • 2 Banque</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="collapsible accordion-item is-open" data-collapsible>
+                          <button class="collapsible-trigger" data-collapsible-trigger>
+                            <div class="collapsible-label">
+                              <i data-lucide="user" class="icon-16 text-accent"></i>
+                              <span>Profil</span>
+                            </div>
+                            <i data-lucide="chevron-up" class="icon-16 chevron"></i>
+                          </button>
+                          <div class="collapsible-content" data-collapsible-content>
+                            <div class="collapsible-inner">
+                              <div class="ai-grid small">
+                                <div class="ai-card positive">
+                                  <span class="muted text-xxs">Fidélité</span>
+                                  <p class="detail-value">Très fidèle</p>
+                                </div>
+                                <div class="ai-card positive">
+                                  <span class="muted text-xxs">Incidents</span>
+                                  <p class="detail-value"><i data-lucide="check-circle-2" class="icon-16"></i> Aucun</p>
+                                </div>
+                              </div>
+                              <div class="ai-card potential">
+                                <div class="ai-card-head">
+                                  <span class="muted text-xs">Potentiel commercial</span>
+                                  <span class="badge accent">Élevé</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="collapsible accordion-item is-open" data-collapsible>
+                          <button class="collapsible-trigger" data-collapsible-trigger>
+                            <div class="collapsible-label">
+                              <i data-lucide="message-square" class="icon-16 teal"></i>
+                              <span>Dernières interactions</span>
+                            </div>
+                            <i data-lucide="chevron-up" class="icon-16 chevron"></i>
+                          </button>
+                          <div class="collapsible-content" data-collapsible-content>
+                            <div class="collapsible-inner">
+                              <div class="ai-card neutral">
+                                <div class="ai-card-head">
+                                  <span class="detail-value">Sinistre Auto</span>
+                                  <span class="badge badge-outline">Mai 2025</span>
+                                </div>
+                                <p class="muted text-xs">Accrochage mineur, réparé via SAD</p>
+                              </div>
+                              <div class="ai-card neutral">
+                                <div class="ai-card-head">
+                                  <span class="detail-value">RDV agence</span>
+                                  <span class="badge badge-outline">Mars 2025</span>
+                                </div>
+                                <p class="muted text-xs">Proposition d'assurance vie</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+
+                  <section id="ai-pistes" class="tab-panel" role="tabpanel" aria-hidden="true">
+                    <div class="ai-surface">
+                      <section class="ai-section">
+                        <div class="ai-card potential">
+                          <div class="ai-card-head">
+                            <i data-lucide="trending-up" class="icon-16"></i>
+                            <span class="detail-value">Opportunités prioritaires</span>
+                          </div>
+                          <ul class="ai-list">
+                            <li>
+                              <i data-lucide="target" class="icon-16"></i>
+                              <span>Plan d'épargne retraite - Potentiel élevé</span>
+                            </li>
+                            <li>
+                              <i data-lucide="calendar" class="icon-16"></i>
+                              <span>Prendre rendez-vous pour renégociation Habitation</span>
+                            </li>
+                            <li>
+                              <i data-lucide="thumbs-down" class="icon-16"></i>
+                              <span>Prévenir risque churn sur contrat Auto principal</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="ai-card neutral">
+                          <div class="ai-card-head">
+                            <i data-lucide="timer" class="icon-16"></i>
+                            <span class="detail-value">Prochaines étapes</span>
+                          </div>
+                          <ul class="ai-list">
+                            <li>
+                              <i data-lucide="upload" class="icon-16"></i>
+                              <span>Envoyer les documents KYC d'ici 24h</span>
+                            </li>
+                            <li>
+                              <i data-lucide="lightbulb" class="icon-16"></i>
+                              <span>Proposer une simulation d'épargne retraite</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <footer class="sf-footer">
+        <div class="container footer-bar">
+          <div class="footer-left">
+            <button class="btn btn-ghost btn-sm" type="button">
+              <i data-lucide="phone" class="icon-16"></i>
+              Demandes Espace Client
+              <span class="badge badge-secondary">50+</span>
+            </button>
+            <button class="btn btn-ghost btn-sm" type="button">
+              <i data-lucide="star" class="icon-16"></i>
+              Leads
+              <span class="badge badge-secondary">2</span>
+            </button>
+          </div>
+          <div class="footer-right">
+            <button class="btn btn-ghost btn-sm" type="button" data-open-dialog>
+              <i data-lucide="sparkles" class="icon-16"></i>
+              CR par IA
+              <span class="badge badge-secondary hidden" data-notification>1</span>
+            </button>
+            <div class="status">
+              <i data-lucide="cloud" class="icon-16"></i>
+              <span>Genesys Cloud</span>
+            </div>
+            <div class="queue" data-queue>
+              <button class="btn btn-ghost btn-sm" type="button" data-queue-toggle aria-expanded="false">
+                <i data-lucide="clock" class="icon-16"></i>
+                <span>En file d'attente</span>
+                <i data-lucide="chevron-down" class="icon-16" data-queue-chevron></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <div class="queue-panel hidden" data-queue-panel role="dialog" aria-label="Détails de la file d'attente">
+        <div class="queue-head">
+          <div class="queue-head-inner">
+            <i data-lucide="phone-call" class="icon-16"></i>
+            <span>En file d'attente</span>
+          </div>
+        </div>
+        <div class="queue-body">
+          <div class="queue-controls">
+            <button class="btn btn-ghost btn-icon" type="button" disabled>
+              <i data-lucide="phone" class="icon-16"></i>
+            </button>
+            <button class="btn btn-ghost btn-icon" type="button" data-trigger-notification>
+              <i data-lucide="phone-forwarded" class="icon-16"></i>
+            </button>
+            <button class="btn btn-ghost btn-icon" type="button">
+              <i data-lucide="refresh-cw" class="icon-16"></i>
+            </button>
+            <button class="btn btn-ghost btn-icon" type="button">
+              <i data-lucide="arrow-right" class="icon-16"></i>
+            </button>
+            <button class="btn btn-ghost btn-icon" type="button">
+              <i data-lucide="pause" class="icon-16"></i>
+            </button>
+            <button class="btn btn-ghost btn-icon" type="button">
+              <i data-lucide="mic" class="icon-16"></i>
+            </button>
+            <button class="btn btn-ghost btn-icon" type="button">
+              <i data-lucide="grid-3x3" class="icon-16"></i>
+            </button>
+          </div>
+          <dl class="queue-details">
+            <div>
+              <dt>N° appelant</dt>
+              <dd>+33649730514</dd>
+            </div>
+            <div>
+              <dt>File d'attente</dt>
+              <dd>AGC_Martin_Accueil</dd>
+            </div>
+            <div>
+              <dt>Temps d'attente</dt>
+              <dd>1 min</dd>
+            </div>
+            <div>
+              <dt>Dernier appel</dt>
+              <dd><span class="italic">Aucun</span> [0 sur 48h]</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="queue-footer">
+          <p class="muted text-xs">Genesys Cloud</p>
+          <button class="btn btn-primary btn-sm" type="button">En file d'attente</button>
+        </div>
+      </div>
+
+      <div class="modal-backdrop hidden" data-dialog-backdrop></div>
+      <div class="dialog hidden" data-dialog aria-modal="true" role="dialog" tabindex="-1">
+        <div class="dialog-panel">
+          <header class="dialog-header">
+            <h2 class="dialog-title">
+              <i data-lucide="sparkles" class="icon-20 accent"></i>
+              Consigner un échange - CR automatique IA
+            </h2>
+            <p class="sr-only">Formulaire de consignation d'échange avec transcription automatique par IA</p>
+          </header>
+          <form class="dialog-body" data-call-report-form>
+            <section class="ai-card transcription">
+              <div class="ai-card-head">
+                <i data-lucide="sparkles" class="icon-16 accent"></i>
+                <span class="detail-value">Transcription automatique IA</span>
+                <span class="badge badge-secondary">Généré</span>
+              </div>
+              <textarea class="textarea" name="summary" rows="8"></textarea>
+              <div class="dialog-inline-actions">
+                <button class="btn btn-outline btn-sm" type="button">
+                  <i data-lucide="mic" class="icon-16"></i>
+                  Enregistrer
+                </button>
+                <button class="btn btn-outline btn-sm" type="button">
+                  <i data-lucide="upload" class="icon-16"></i>
+                  Importer note
+                </button>
+              </div>
+            </section>
+
+            <div class="form-grid">
+              <label class="form-field">
+                <span class="form-label"><i data-lucide="file-text" class="icon-16"></i> Objet</span>
+                <input class="input" name="object" type="text" value="Échange" />
+              </label>
+              <label class="form-field">
+                <span class="form-label"><i data-lucide="user" class="icon-16"></i> Attribué à</span>
+                <input class="input" name="assignedTo" type="text" value="Claire JAMET" />
+              </label>
+              <label class="form-field">
+                <span class="form-label"><i data-lucide="phone" class="icon-16"></i> Type</span>
+                <select class="select" name="type">
+                  <option value="phone">Téléphone</option>
+                  <option value="email">Email</option>
+                  <option value="meeting">Rendez-vous</option>
+                </select>
+              </label>
+              <label class="form-field">
+                <span class="form-label"><i data-lucide="user" class="icon-16"></i> Client</span>
+                <input class="input" name="client" type="text" value="Sylviane DUPOND" />
+              </label>
+              <label class="form-field">
+                <span class="form-label">Direction</span>
+                <select class="select" name="direction">
+                  <option value="inbound">Entrant</option>
+                  <option value="outbound">Sortant</option>
+                </select>
+              </label>
+              <label class="form-field">
+                <span class="form-label"><i data-lucide="calendar" class="icon-16"></i> Date de l'échange</span>
+                <input class="input" type="date" name="date" value="2025-08-25" />
+              </label>
+            </div>
+
+            <section class="email-options">
+              <h3>Éléments à inclure dans l'email client</h3>
+              <label class="filter-item">
+                <span class="checkbox" role="checkbox" tabindex="0" data-checkbox data-key="documents" aria-checked="true"></span>
+                <span>Documents requis</span>
+              </label>
+              <label class="filter-item">
+                <span class="checkbox" role="checkbox" tabindex="0" data-checkbox data-key="recommendations" aria-checked="true"></span>
+                <span>Recommandations personnalisées</span>
+              </label>
+              <label class="filter-item">
+                <span class="checkbox" role="checkbox" tabindex="0" data-checkbox data-key="recap" aria-checked="true"></span>
+                <span>Récapitulatif de l'échange</span>
+              </label>
+            </section>
+          </form>
+          <footer class="dialog-footer">
+            <div class="dialog-footer-actions">
+              <button class="btn btn-outline" type="button" data-dialog-close>Annuler</button>
+              <button class="btn btn-outline accent" type="button" data-dialog-save>Enregistrer</button>
+              <button class="btn btn-primary accent" type="button" data-dialog-send>
+                <i data-lucide="sparkles" class="icon-16"></i>
+                Envoyer au client
+              </button>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="module" src="scripts/state.js"></script>
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>
