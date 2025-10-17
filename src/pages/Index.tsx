@@ -5,6 +5,7 @@ import { AccountCard } from "@/components/AccountCard";
 import { InteractionsPanel } from "@/components/InteractionsPanel";
 import { AccountDetails } from "@/components/AccountDetails";
 import { AIAssistantPanel } from "@/components/AIAssistantPanel";
+import backgroundImage from "@/assets/SALESFORCE-background.webp";
 
 interface Interaction {
   id: string;
@@ -29,7 +30,16 @@ const Index = () => {
   };
 
   return (
-    <div id="app" className="min-h-screen bg-background flex flex-col">
+    <div 
+      id="app" 
+      className="min-h-screen bg-background flex flex-col"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       <SalesforceHeader />
       
       <main className="flex-1 container mx-auto p-4">
