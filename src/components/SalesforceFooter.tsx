@@ -81,7 +81,7 @@ export const SalesforceFooter = ({
 
               {queueOpen && <div ref={panelRef} role="dialog" aria-label="Détails de la file d'attente" className="absolute bottom-full right-0 mb-2 w-80 rounded-md border bg-popover text-popover-foreground shadow-md z-50 animate-in slide-in-from-bottom-2">
                   {/* Header */}
-                  <div className="bg-primary text-primary-foreground p-3 rounded-t-md">
+                  <div className="bg-[hsl(178,79%,41%)] text-white p-3 rounded-t-md">
                     <div className="flex items-center gap-2">
                       <PhoneCall className="w-4 h-4" />
                       <span className="font-semibold">En file d'attente</span>
@@ -89,31 +89,31 @@ export const SalesforceFooter = ({
                   </div>
 
                   {/* Content */}
-                  <div className="p-4 space-y-2 bg-[hsl(178,79%,41%)]/20">
+                  <div className="p-4 space-y-2 bg-[hsl(122,65%,86%)]">
                     {/* Control Bar */}
-                    <div className="flex items-center justify-center gap-1 bg-muted/50 rounded p-2 mb-3">
-                      <Button variant="ghost" size="icon" className="h-8 w-8" disabled>
+                    <div className="flex items-center justify-center gap-1 bg-[hsl(0,0%,23%)] rounded p-2 mb-3">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/10" disabled>
                         <Phone className="w-4 h-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent" onClick={() => {
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/10" onClick={() => {
                     setHasNotification(true);
                     setQueueOpen(false);
                   }}>
                         <PhoneForwarded className="w-4 h-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/10">
                         <RefreshCw className="w-4 h-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/10">
                         <ArrowRight className="w-4 h-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/10">
                         <Pause className="w-4 h-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/10">
                         <Mic className="w-4 h-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-accent">
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-white hover:bg-white/10">
                         <Grid3x3 className="w-4 h-4" />
                       </Button>
                     </div>
@@ -134,9 +134,9 @@ export const SalesforceFooter = ({
                   </div>
 
                   {/* Footer */}
-                  <div className="p-3 border-t">
+                  <div className="p-3 border-t bg-white">
                     <div className="text-center text-xs text-muted-foreground mb-2">Genesys Cloud</div>
-                    <Button className="w-full" size="sm">En file d'attente</Button>
+                    <Button className="w-full bg-[hsl(178,79%,41%)] hover:bg-[hsl(178,79%,35%)] text-white" size="sm">En file d'attente</Button>
                   </div>
                 </div>}
             </div>
