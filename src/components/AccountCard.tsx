@@ -1,11 +1,9 @@
 import { Mail, Phone, MapPin, Calendar, Hash, FileText } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-
 export const AccountCard = () => {
-  return (
-    <Card id="card-account" className="shadow-lg">
-      <CardHeader className="bg-sf-teal text-white rounded-t-lg">
+  return <Card id="card-account" className="shadow-lg">
+      <CardHeader className="bg-sf-teal text-white rounded-t-lg py-[4px]">
         <CardTitle className="flex items-center gap-2 text-lg">
           <FileText className="h-5 w-5" />
           Compte Particulier
@@ -57,6 +55,5 @@ export const AccountCard = () => {
         </div>
 
       </CardContent>
-    </Card>
-  );
+    </Card>;
 };
