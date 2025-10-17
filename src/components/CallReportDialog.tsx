@@ -156,7 +156,7 @@ Résumé de l'échange :
           {/* Email Content Selection */}
           <div className="space-y-3">
             <Label className="text-base font-semibold">Éléments à inclure dans l'email client</Label>
-            <div className="space-y-2 p-3 rounded-lg bg-muted/30">
+            <div className="space-y-2 p-4 rounded-lg bg-[hsl(178,79%,41%)]/20">
               <div className="flex items-center space-x-2">
                 <Checkbox 
                   id="documents" 
