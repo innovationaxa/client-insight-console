@@ -41,13 +41,13 @@ export const SalesforceFooter = ({
         <div className="flex items-center justify-between h-10 my-0 mx-0 px-0 py-0">
           {/* Left Section */}
           <div className="flex items-center gap-6">
-            <Button variant="ghost" size="sm" className="gap-2 py-0 h-10 rounded-none border-b-2 border-transparent hover:border-primary hover:bg-transparent text-foreground hover:text-foreground">
+            <Button variant="ghost" size="sm" className="gap-2 py-0 h-10 rounded-none border-b-3 border-transparent hover:border-primary active:border-primary hover:bg-transparent transition-colors text-muted-foreground">
               <Phone className="w-4 h-4" />
               <span>Demandes Espace Client</span>
               <Badge variant="secondary" className="ml-1">50+</Badge>
             </Button>
             
-            <Button variant="ghost" size="sm" className="gap-2 h-10 rounded-none border-b-2 border-transparent hover:border-primary hover:bg-transparent text-foreground hover:text-foreground">
+            <Button variant="ghost" size="sm" className="gap-2 h-10 rounded-none border-b-3 border-transparent hover:border-primary active:border-primary hover:bg-transparent transition-colors text-muted-foreground">
               <Star className="w-4 h-4 fill-warning text-warning" />
               <span>Leads</span>
               <Badge variant="secondary" className="ml-1">2</Badge>
@@ -56,7 +56,7 @@ export const SalesforceFooter = ({
 
           {/* Right Section */}
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="gap-2 relative h-10 rounded-none border-b-2 border-transparent hover:border-primary hover:bg-transparent text-foreground hover:text-foreground" onClick={() => {
+            <Button variant="ghost" size="sm" className="gap-2 relative h-10 rounded-none border-b-3 border-transparent hover:border-primary active:border-primary hover:bg-transparent transition-colors text-muted-foreground" onClick={() => {
             setHasNotification(false);
             setCallReportOpen(true);
           }}>
@@ -73,7 +73,7 @@ export const SalesforceFooter = ({
             </div>
             
             <div className="relative">
-              <Button ref={buttonRef} variant="ghost" size="sm" className="gap-2 text-foreground hover:text-foreground h-10 rounded-none border-b-2 border-transparent hover:border-primary hover:bg-transparent" onClick={() => setQueueOpen(v => !v)}>
+              <Button ref={buttonRef} variant="ghost" size="sm" className="gap-2 text-muted-foreground h-10 rounded-none border-b-3 border-transparent hover:border-primary active:border-primary hover:bg-transparent transition-colors" onClick={() => setQueueOpen(v => !v)}>
                 <Clock className="w-4 h-4" />
                 <span>En file d'attente</span>
                 <ChevronDown className={`w-3 h-3 transition-transform ${queueOpen ? "rotate-180" : ""}`} />
