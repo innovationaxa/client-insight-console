@@ -130,7 +130,7 @@ export const AIAssistantPanel = () => {
                     <AlertCircle className="h-4 w-4 text-destructive flex-shrink-0 mt-0.5" />
                     <div className="flex-1 space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-semibold text-destructive">⚠️ Complétude KYC : 50%</span>
+                        <span className="text-xs font-semibold text-destructive">Complétude KYC : 50%</span>
                       </div>
                       <p className="text-xs text-muted-foreground">📋 Pièces d'identité obligatoires à collecter</p>
                     </div>
